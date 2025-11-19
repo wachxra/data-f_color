@@ -37,10 +37,6 @@ MonoBehaviour:
     colorB: 3
     resultPrefab: {fileID: 0}
     explodeIfMatched: 1
-  - colorA: 4
-    colorB: 3
-    resultPrefab: {fileID: 5880168608502538538, guid: b8c22f8a0163ee9468e8a7d7fba44d04, type: 3}
-    explodeIfMatched: 0
   - colorA: 7
     colorB: 1
     resultPrefab: {fileID: 0}
@@ -67,5 +63,77 @@ MonoBehaviour:
     explodeIfMatched: 1
   - colorA: 7
     colorB: 7
+    resultPrefab: {fileID: 0}
+    explodeIfMatched: 1
+  - colorA: 4
+    colorB: 3
+    resultPrefab: {fileID: 5880168608502538538, guid: b8c22f8a0163ee9468e8a7d7fba44d04, type: 3}
+    explodeIfMatched: 0
+  - colorA: 5
+    colorB: 1
+    resultPrefab: {fileID: 5880168608502538538, guid: b8c22f8a0163ee9468e8a7d7fba44d04, type: 3}
+    explodeIfMatched: 0
+  - colorA: 6
+    colorB: 2
+    resultPrefab: {fileID: 5880168608502538538, guid: b8c22f8a0163ee9468e8a7d7fba44d04, type: 3}
+    explodeIfMatched: 0
+  - colorA: 6
+    colorB: 1
+    resultPrefab: {fileID: 0}
+    explodeIfMatched: 1
+  - colorA: 6
+    colorB: 2
+    resultPrefab: {fileID: 0}
+    explodeIfMatched: 1
+  - colorA: 6
+    colorB: 3
+    resultPrefab: {fileID: 0}
+    explodeIfMatched: 1
+  - colorA: 6
+    colorB: 4
+    resultPrefab: {fileID: 0}
+    explodeIfMatched: 1
+  - colorA: 6
+    colorB: 5
+    resultPrefab: {fileID: 0}
+    explodeIfMatched: 1
+  - colorA: 6
+    colorB: 6
+    resultPrefab: {fileID: 0}
+    explodeIfMatched: 1
+  - colorA: 5
+    colorB: 1
+    resultPrefab: {fileID: 0}
+    explodeIfMatched: 1
+  - colorA: 5
+    colorB: 2
+    resultPrefab: {fileID: 0}
+    explodeIfMatched: 1
+  - colorA: 5
+    colorB: 3
+    resultPrefab: {fileID: 0}
+    explodeIfMatched: 1
+  - colorA: 5
+    colorB: 4
+    resultPrefab: {fileID: 0}
+    explodeIfMatched: 1
+  - colorA: 5
+    colorB: 5
+    resultPrefab: {fileID: 0}
+    explodeIfMatched: 1
+  - colorA: 4
+    colorB: 1
+    resultPrefab: {fileID: 0}
+    explodeIfMatched: 1
+  - colorA: 4
+    colorB: 2
+    resultPrefab: {fileID: 0}
+    explodeIfMatched: 1
+  - colorA: 4
+    colorB: 3
+    resultPrefab: {fileID: 0}
+    explodeIfMatched: 1
+  - colorA: 4
+    colorB: 4
     resultPrefab: {fileID: 0}
     explodeIfMatched: 1

@@ -1738,22 +1738,42 @@ MonoBehaviour:
   boxSpawnInfos:
   - prefab: {fileID: 3696353496858076381, guid: 5443ad03b869748438f66c944f70dae6, type: 3}
     color: 1
-    startPos: {x: 0, y: 0}
+    startPos: {x: 0, y: 3}
     count: 1
     spacing: {x: 0, y: 0}
   - prefab: {fileID: 6106460097954355088, guid: 3123b80a73a973941baca9994e865d66, type: 3}
     color: 2
-    startPos: {x: 1, y: 0}
+    startPos: {x: 1, y: 2}
     count: 1
     spacing: {x: 0, y: 0}
   - prefab: {fileID: 529933411678267357, guid: 9f53f5431577c7745befe4d3352ccbcb, type: 3}
     color: 3
-    startPos: {x: 2, y: 0}
+    startPos: {x: 2, y: 1}
     count: 1
     spacing: {x: 0, y: 0}
   - prefab: {fileID: 5880168608502538538, guid: b8c22f8a0163ee9468e8a7d7fba44d04, type: 3}
     color: 7
     startPos: {x: -2, y: 0}
+    count: 1
+    spacing: {x: 0, y: 0}
+  - prefab: {fileID: 5880168608502538538, guid: b8c22f8a0163ee9468e8a7d7fba44d04, type: 3}
+    color: 7
+    startPos: {x: -3, y: 2}
+    count: 1
+    spacing: {x: 0, y: 0}
+  - prefab: {fileID: 3696353496858076381, guid: 5443ad03b869748438f66c944f70dae6, type: 3}
+    color: 1
+    startPos: {x: 3, y: 2}
+    count: 1
+    spacing: {x: 0, y: 0}
+  - prefab: {fileID: 529933411678267357, guid: 9f53f5431577c7745befe4d3352ccbcb, type: 3}
+    color: 3
+    startPos: {x: 3, y: -2}
+    count: 1
+    spacing: {x: 0, y: 0}
+  - prefab: {fileID: 6106460097954355088, guid: 3123b80a73a973941baca9994e865d66, type: 3}
+    color: 2
+    startPos: {x: 1, y: -2}
     count: 1
     spacing: {x: 0, y: 0}
   goalSpawnInfos:
