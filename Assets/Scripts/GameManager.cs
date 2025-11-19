@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     [Header("Player HP")]
     public int playerHP = 3;
 
+    [Header("Player HP UI")]
+    public List<Image> heartImages;
+
     void Start()
     {
         StartLevel();
@@ -33,6 +36,7 @@ public class GameManager : MonoBehaviour
         levelManager.LoadLevelData();
         levelManager.SpawnObjects();
         totalGoals = levelManager.goals.Count;
+        ResetHeartsUI();
     }
 
     public void CheckWinCondition()
@@ -69,9 +73,28 @@ public class GameManager : MonoBehaviour
     public void TakeDamage(int damage)
     {
         playerHP -= damage;
+
+        for (int i = 0; i < damage; i++)
+        {
+            if (heartImages.Count > 0)
+            {
+                Image heart = heartImages[heartImages.Count - 1];
+                heart.gameObject.SetActive(false);
+                heartImages.RemoveAt(heartImages.Count - 1);
+            }
+        }
+
         if (playerHP <= 0)
         {
             GameOver();
+        }
+    }
+
+    private void ResetHeartsUI()
+    {
+        foreach (var heart in heartImages)
+        {
+            heart.gameObject.SetActive(true);
         }
     }
 

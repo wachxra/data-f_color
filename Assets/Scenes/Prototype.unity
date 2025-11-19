@@ -293,6 +293,10 @@ MonoBehaviour:
   goalsCompleted: 0
   totalGoals: 3
   playerHP: 3
+  heartImages:
+  - {fileID: 646737662}
+  - {fileID: 1355056390}
+  - {fileID: 1343461737}
 --- !u!4 &507008812
 Transform:
   m_ObjectHideFlags: 0
