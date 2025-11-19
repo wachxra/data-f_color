@@ -1,8 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Box : TileObject
 {
+    public ColorType colorType;
     private Goal currentGoal;
+
+    public LevelManager levelManager;
 
     public void Initialize(Vector2Int pos)
     {
@@ -13,9 +16,40 @@ public class Box : TileObject
     public void Move(Vector2 direction)
     {
         Vector2 target = (Vector2)transform.position + direction;
-        transform.position = target;
 
+        Collider2D hit = Physics2D.OverlapPoint(target);
+        if (hit != null && hit.CompareTag("Box"))
+        {
+            Box other = hit.GetComponent<Box>();
+            TryMerge(other);
+            return;
+        }
+
+        transform.position = target;
         CheckGoalStatus();
+    }
+
+    void TryMerge(Box other)
+    {
+        bool explode;
+        GameObject resultPrefab = levelManager.GetMergeResult(colorType, other.colorType, out explode);
+
+        if (explode)
+        {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+            levelManager.gameManager.TakeDamage(1);
+            return;
+        }
+
+        if (resultPrefab != null)
+        {
+            Vector3 spawnPos = (transform.position + other.transform.position) / 2f;
+            GameObject merged = Instantiate(resultPrefab, spawnPos, Quaternion.identity);
+
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+        }
     }
 
     private void CheckGoalStatus()

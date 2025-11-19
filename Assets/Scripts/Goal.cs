@@ -12,6 +12,9 @@ public class Goal : TileObject
 
     public void OnBoxPlaced(Box b)
     {
+        if (b.colorType != ColorType.Black)
+            return;
+
         isCompleted = true;
 
         var sr = GetComponent<SpriteRenderer>();

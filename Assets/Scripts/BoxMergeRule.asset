@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7189637068736d4e8935c9f8ee1b8b2, type: 3}
+  m_Name: BoxMergeRule
+  m_EditorClassIdentifier: Assembly-CSharp::BoxMergeRule
+  mergeRules:
+  - colorA: 1
+    colorB: 2
+    resultPrefab: {fileID: 5758012460974483220, guid: 32da7163fb70e0f4aa5bdd628e942a5a, type: 3}
+    explodeIfMatched: 0
+  - colorA: 1
+    colorB: 3
+    resultPrefab: {fileID: 4881619544224899656, guid: 4eb3e58fb1dbb70478f792955d8938cd, type: 3}
+    explodeIfMatched: 0
+  - colorA: 1
+    colorB: 1
+    resultPrefab: {fileID: 0}
+    explodeIfMatched: 1
+  - colorA: 2
+    colorB: 3
+    resultPrefab: {fileID: 6904697248595091301, guid: 35af334e63e06ce4680ae9701726d125, type: 3}
+    explodeIfMatched: 0
+  - colorA: 2
+    colorB: 2
+    resultPrefab: {fileID: 0}
+    explodeIfMatched: 1
+  - colorA: 3
+    colorB: 3
+    resultPrefab: {fileID: 0}
+    explodeIfMatched: 1
+  - colorA: 4
+    colorB: 3
+    resultPrefab: {fileID: 5880168608502538538, guid: b8c22f8a0163ee9468e8a7d7fba44d04, type: 3}
+    explodeIfMatched: 0
