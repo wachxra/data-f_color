@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
             Vector2 boxTarget = targetPos + direction;
             Collider2D boxHit = Physics2D.OverlapPoint(boxTarget);
 
-            if (boxHit == null)
+            if (boxHit == null || boxHit.CompareTag("Box"))
             {
                 box.Move(direction);
                 StartCoroutine(MoveTo(targetPos));

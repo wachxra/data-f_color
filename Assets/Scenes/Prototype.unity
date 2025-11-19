@@ -1754,7 +1754,7 @@ MonoBehaviour:
     spacing: {x: 0, y: 0}
   goalSpawnInfos:
   - prefab: {fileID: 6930229712261048652, guid: b91c9d7ee9f19b24ba7473fca78f4f2d, type: 3}
-    startPos: {x: 0, y: 0}
+    startPos: {x: 0, y: -3}
     count: 1
     spacing: {x: 0, y: 0}
   mergeRule: {fileID: 11400000, guid: dfc738874d8535e43bca0a06d324ba50, type: 2}

@@ -25,19 +25,23 @@ public class Box : TileObject
     {
         Vector2 target = (Vector2)transform.position + direction;
 
-        Collider2D hit = Physics2D.OverlapPoint(target);
-        if (hit != null && hit.CompareTag("Box"))
+        Collider2D[] hits = Physics2D.OverlapBoxAll(target, Vector2.one * 0.9f, 0f);
+        foreach (var hit in hits)
         {
-            Box other = hit.GetComponent<Box>();
-            TryMerge(other);
-            return;
+            if (hit.CompareTag("Box") && hit.gameObject != this.gameObject)
+            {
+                Box other = hit.GetComponent<Box>();
+                MergeAndSpawn(other, target);
+                return;
+            }
         }
 
         transform.position = target;
+        gridPos += Vector2Int.RoundToInt(direction);
         CheckGoalStatus();
     }
 
-    void TryMerge(Box other)
+    void MergeAndSpawn(Box other, Vector2 spawnPos)
     {
         bool explode;
         GameObject resultPrefab = levelManager.GetMergeResult(colorType, other.colorType, out explode);
@@ -52,11 +56,22 @@ public class Box : TileObject
 
         if (resultPrefab != null)
         {
-            Vector3 spawnPos = (transform.position + other.transform.position) / 2f;
             GameObject merged = Instantiate(resultPrefab, spawnPos, Quaternion.identity);
+
+            Box mergedBox = merged.GetComponent<Box>();
+            if (mergedBox != null)
+            {
+                mergedBox.levelManager = levelManager;
+                mergedBox.gridPos = Vector2Int.RoundToInt(spawnPos);
+            }
 
             Destroy(gameObject);
             Destroy(other.gameObject);
+        }
+        else
+        {
+            transform.position = spawnPos;
+            gridPos = Vector2Int.RoundToInt(spawnPos);
         }
     }
 
