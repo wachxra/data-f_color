@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Box
   gridPos: {x: 0, y: 0}
-  colorType: 0
+  colorType: 4
   levelManager: {fileID: 0}
 --- !u!61 &692288159212015725
 BoxCollider2D:

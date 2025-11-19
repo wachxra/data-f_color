@@ -7,6 +7,14 @@ public class Box : TileObject
 
     public LevelManager levelManager;
 
+    private void Awake()
+    {
+        if (levelManager == null)
+        {
+            levelManager = Object.FindFirstObjectByType<LevelManager>();
+        }
+    }
+
     public void Initialize(Vector2Int pos)
     {
         gridPos = pos;
