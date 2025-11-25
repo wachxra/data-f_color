@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
-        Debug.Log("🎉 You Win! All goals completed!");
+        Debug.Log("You Win! All goals completed!");
         Time.timeScale = 0f;
         if (winPanel != null)
             winPanel.SetActive(true);
