@@ -157,7 +157,14 @@ public class Box : TileObject
         {
             if (hit.CompareTag("Box") && hit.gameObject != this.gameObject)
             {
-                Destroy(hit.gameObject);
+                Box otherBox = hit.GetComponent<Box>();
+                if (otherBox != null)
+                {
+                    if (!otherBox.isBlocked)
+                    {
+                        Destroy(otherBox.gameObject);
+                    }
+                }
             }
 
             if (hit.CompareTag("Wall"))
@@ -190,7 +197,6 @@ public class Box : TileObject
                         {
                             trapBox.levelManager = levelManager;
                             trapBox.gridPos = Vector2Int.RoundToInt(trap.position);
-                            trapBox.isBlocked = true;
                             trapBox.StartCoroutine(trapBox.BlinkThenExplode(3f));
                         }
                     }

@@ -3,46 +3,36 @@ using System.Collections.Generic;
 
 public class LevelManager : MonoBehaviour
 {
-    [Header("Player")]
+    [Header("Prefabs")]
     public GameObject playerPrefab;
-    public Vector2 playerSpawnPoint = Vector2.zero;
-    public bool playerUseFixed = true;
-
-    [Header("Wall")]
     public GameObject wallPrefab;
-    public List<Vector2> wallPositions;
-    public bool wallUseFixed = true;
+    public GameObject goalPrefab;
+    public GameObject trapPrefab;
 
-    [Header("Goals")]
-    public List<GoalSpawnInfo> goalSpawnInfos;
-    public bool goalUseFixed = true;
-    public bool goalUseRandom = false;
+    [Header("Player Settings")]
+    public PlayerSettings playerSettings;
 
-    [Header("Boxes")]
-    public List<BoxColorPrefabPair> boxColorPrefabs;
-    public List<SpawnPointGroup> spawnPointGroups;
-    public List<ColorSpawnRequest> colorSpawnRequests;
-    public List<RandomBoxInfo> randomBoxes = new List<RandomBoxInfo>();
-    public bool boxUseFixed = true;
-    public bool boxUseRandom = false;
+    [Header("Wall Settings")]
+    public WallSettings wallSettings;
 
-    [Header("Bomb Traps")]
-    public List<FixedTrapInfo> fixedTraps = new List<FixedTrapInfo>();
-    public List<RandomTrapInfo> randomTraps = new List<RandomTrapInfo>();
-    public bool trapUseFixed = false;
-    public bool trapUseRandom = false;
+    [Header("Goal Settings")]
+    public GoalSettings goalSettings;
 
-    [Header("Random All Settings")]
-    public Vector2Int randomMin = new Vector2Int(-5, -5);
-    public Vector2Int randomMax = new Vector2Int(5, 5);
-    public int randomGoalCount = 3;
+    [Header("Trap Settings")]
+    public TrapSettings trapSettings;
+
+    [Header("Box Settings")]
+    public BoxSettings boxSettings;
+
+    [Header("Random Settings")]
+    public RandomSettings randomSettings;
 
     [Header("Merge Rules")]
     public BoxMergeRule mergeRule;
 
-    public List<Box> boxes = new List<Box>();
-    public List<Goal> goals = new List<Goal>();
-    public List<TrapData> traps = new List<TrapData>();
+    [HideInInspector] public List<Box> boxes = new List<Box>();
+    [HideInInspector] public List<Goal> goals = new List<Goal>();
+    [HideInInspector] public List<TrapData> traps = new List<TrapData>();
 
     public GameManager gameManager;
 
@@ -57,82 +47,105 @@ public class LevelManager : MonoBehaviour
 
     public void SpawnObjects()
     {
-        if (playerUseFixed) SpawnPlayer();
-        if (wallUseFixed) SpawnWalls();
+        if (playerSettings.useFixed) SpawnPlayer();
+        if (wallSettings.useFixed) SpawnWalls();
 
-        if (goalUseFixed) SpawnFixedGoals();
-        if (goalUseRandom) SpawnRandomGoals();
+        if (goalSettings.useFixed && goalSettings.fixedCount > 0) SpawnFixedGoals();
+        if (goalSettings.useRandom && goalSettings.randomCount > 0) SpawnRandomGoals();
 
-        if (boxUseFixed) SpawnFixedBoxes();
-        if (boxUseRandom) SpawnRandomBoxes();
+        if (boxSettings.useFixed) SpawnFixedBoxes();
+        if (boxSettings.useRandom) SpawnRandomBoxes();
 
-        if (trapUseFixed) SpawnFixedTraps();
-        if (trapUseRandom) SpawnRandomTraps();
+        if (trapSettings.useFixed && trapSettings.fixedCount > 0) SpawnFixedTraps();
+        if (trapSettings.useRandom && trapSettings.randomCount > 0) SpawnRandomTraps();
     }
 
+    #region Spawn Methods
     void SpawnPlayer()
     {
-        Instantiate(playerPrefab, playerSpawnPoint, Quaternion.identity);
+        Instantiate(playerPrefab, playerSettings.spawnPoint, Quaternion.identity);
     }
 
     void SpawnWalls()
     {
         if (wallPrefab == null) return;
-        foreach (var pos in wallPositions)
-        {
+        foreach (var pos in wallSettings.wallPositions)
             Instantiate(wallPrefab, pos, Quaternion.identity);
-        }
     }
 
     void SpawnFixedGoals()
     {
-        foreach (var info in goalSpawnInfos)
+        HashSet<Vector2> occupied = GetOccupiedPositions();
+        List<Vector2> availablePoints = new List<Vector2>();
+        foreach (var point in goalSettings.fixedPoints)
+            if (!occupied.Contains(point)) availablePoints.Add(point);
+
+        ShuffleList(availablePoints);
+        int spawnCount = Mathf.Min(goalSettings.fixedCount, availablePoints.Count);
+
+        for (int i = 0; i < spawnCount; i++)
         {
-            for (int i = 0; i < info.count; i++)
-            {
-                Vector2 pos = info.startPos + new Vector2(i * info.spacing.x, i * info.spacing.y);
-                GameObject g = Instantiate(info.prefab, pos, Quaternion.identity);
-                goals.Add(g.GetComponent<Goal>());
-            }
+            Vector2 pos = availablePoints[i];
+            GameObject g = Instantiate(goalPrefab, pos, Quaternion.identity);
+            goals.Add(g.GetComponent<Goal>());
         }
     }
 
     void SpawnRandomGoals()
     {
-        HashSet<Vector2> occupied = new HashSet<Vector2>();
-        foreach (var g in goals) occupied.Add(g.transform.position);
-        occupied.Add(playerSpawnPoint);
-        foreach (var w in wallPositions) occupied.Add(w);
-
-        for (int i = 0; i < randomGoalCount; i++)
+        HashSet<Vector2> occupied = GetOccupiedPositions();
+        for (int i = 0; i < goalSettings.randomCount; i++)
         {
             Vector2 pos = GetRandomIntPosition(occupied);
-            var info = goalSpawnInfos[Random.Range(0, goalSpawnInfos.Count)];
-            GameObject g = Instantiate(info.prefab, pos, Quaternion.identity);
+            GameObject g = Instantiate(goalPrefab, pos, Quaternion.identity);
             goals.Add(g.GetComponent<Goal>());
+            occupied.Add(pos);
+        }
+    }
+
+    void SpawnFixedTraps()
+    {
+        HashSet<Vector2> occupied = GetOccupiedPositions();
+        List<Vector2> availablePoints = new List<Vector2>();
+        foreach (var point in trapSettings.fixedPoints)
+            if (!occupied.Contains(point)) availablePoints.Add(point);
+
+        ShuffleList(availablePoints);
+        int spawnCount = Mathf.Min(trapSettings.fixedCount, availablePoints.Count);
+
+        for (int i = 0; i < spawnCount; i++)
+        {
+            Vector2 pos = availablePoints[i];
+            traps.Add(new TrapData(pos, trapPrefab));
+        }
+    }
+
+    void SpawnRandomTraps()
+    {
+        HashSet<Vector2> occupied = GetOccupiedPositions();
+        for (int i = 0; i < trapSettings.randomCount; i++)
+        {
+            Vector2 pos = GetRandomIntPosition(occupied);
+            traps.Add(new TrapData(pos, trapPrefab));
             occupied.Add(pos);
         }
     }
 
     void SpawnFixedBoxes()
     {
-        HashSet<Vector2> occupied = new HashSet<Vector2>();
-        foreach (var g in goals) occupied.Add(g.transform.position);
-
+        HashSet<Vector2> occupied = GetOccupiedPositions();
         List<Vector2> availablePoints = new List<Vector2>();
-        foreach (var group in spawnPointGroups)
+        foreach (var group in boxSettings.spawnPointGroups)
             foreach (var p in group.points)
-                if (!occupied.Contains(p))
-                    availablePoints.Add(p);
+                if (!occupied.Contains(p)) availablePoints.Add(p);
 
         ShuffleList(availablePoints);
 
-        foreach (var req in colorSpawnRequests)
+        foreach (var req in boxSettings.colorSpawnRequests)
         {
             for (int i = 0; i < req.count; i++)
             {
                 if (availablePoints.Count == 0) return;
-
                 Vector2 pos = availablePoints[0]; availablePoints.RemoveAt(0);
                 GameObject prefab = GetRandomPrefabOfColor(req.color);
                 if (prefab == null) continue;
@@ -148,13 +161,8 @@ public class LevelManager : MonoBehaviour
 
     void SpawnRandomBoxes()
     {
-        HashSet<Vector2> occupied = new HashSet<Vector2>();
-        foreach (var g in goals) occupied.Add(g.transform.position);
-        foreach (var b in boxes) occupied.Add(b.transform.position);
-        occupied.Add(playerSpawnPoint);
-        foreach (var w in wallPositions) occupied.Add(w);
-
-        foreach (var boxInfo in randomBoxes)
+        HashSet<Vector2> occupied = GetOccupiedPositions();
+        foreach (var boxInfo in boxSettings.randomBoxes)
         {
             for (int i = 0; i < boxInfo.count; i++)
             {
@@ -171,43 +179,17 @@ public class LevelManager : MonoBehaviour
             }
         }
     }
+    #endregion
 
-    void SpawnFixedTraps()
-    {
-        if (fixedTraps == null || fixedTraps.Count == 0) return;
-
-        HashSet<Vector2> occupied = new HashSet<Vector2>();
-        foreach (var g in goals) occupied.Add(g.transform.position);
-        foreach (var b in boxes) occupied.Add(b.transform.position);
-        occupied.Add(playerSpawnPoint);
-        foreach (var w in wallPositions) occupied.Add(w);
-
-        foreach (var trapInfo in fixedTraps)
-        {
-            if (occupied.Contains(trapInfo.position)) continue;
-
-            traps.Add(new TrapData(trapInfo.position, trapInfo.prefab));
-            occupied.Add(trapInfo.position);
-        }
-    }
-
-    void SpawnRandomTraps()
+    #region Utility
+    HashSet<Vector2> GetOccupiedPositions()
     {
         HashSet<Vector2> occupied = new HashSet<Vector2>();
         foreach (var g in goals) occupied.Add(g.transform.position);
         foreach (var b in boxes) occupied.Add(b.transform.position);
-        occupied.Add(playerSpawnPoint);
-        foreach (var w in wallPositions) occupied.Add(w);
-
-        foreach (var trapInfo in randomTraps)
-        {
-            for (int i = 0; i < trapInfo.count; i++)
-            {
-                Vector2 pos = GetRandomIntPosition(occupied);
-                traps.Add(new TrapData(pos, trapInfo.prefab));
-                occupied.Add(pos);
-            }
-        }
+        occupied.Add(playerSettings.spawnPoint);
+        foreach (var w in wallSettings.wallPositions) occupied.Add(w);
+        return occupied;
     }
 
     Vector2 GetRandomIntPosition(HashSet<Vector2> occupied)
@@ -217,8 +199,8 @@ public class LevelManager : MonoBehaviour
         do
         {
             pos = new Vector2(
-                Random.Range(randomMin.x, randomMax.x + 1),
-                Random.Range(randomMin.y, randomMax.y + 1)
+                Random.Range(randomSettings.randomMin.x, randomSettings.randomMax.x + 1),
+                Random.Range(randomSettings.randomMin.y, randomSettings.randomMax.y + 1)
             );
             tries++;
         } while (occupied.Contains(pos) && tries < 50);
@@ -228,10 +210,8 @@ public class LevelManager : MonoBehaviour
     GameObject GetRandomPrefabOfColor(ColorType color)
     {
         List<GameObject> matched = new List<GameObject>();
-        foreach (var p in boxColorPrefabs)
-            if (p.color == color)
-                matched.Add(p.prefab);
-
+        foreach (var p in boxSettings.boxColorPrefabs)
+            if (p.color == color) matched.Add(p.prefab);
         if (matched.Count == 0) return null;
         return matched[Random.Range(0, matched.Count)];
     }
@@ -249,70 +229,59 @@ public class LevelManager : MonoBehaviour
     {
         return mergeRule.GetResult(a, b, out explode, out explosionPrefab);
     }
+    #endregion
 }
 
+#region Settings Classes
 [System.Serializable]
-public class TrapData
-{
-    public Vector2 position;
-    public bool triggered = false;
-    public GameObject prefab;
-
-    public TrapData(Vector2 pos, GameObject p)
-    {
-        position = pos;
-        prefab = p;
-        triggered = false;
-    }
-}
-
+public class PlayerSettings { public Vector2 spawnPoint = Vector2.zero; public bool useFixed = true; }
 [System.Serializable]
-public class FixedTrapInfo
-{
-    public Vector2 position;
-    public GameObject prefab;
-}
-
+public class WallSettings { public List<Vector2> wallPositions; public bool useFixed = true; }
 [System.Serializable]
-public class RandomTrapInfo
+public class GoalSettings
 {
-    public GameObject prefab;
-    public int count;
+    public bool useFixed = true;
+    public bool useRandom = false;
+    public List<Vector2> fixedPoints;
+    public int fixedCount = 1;
+    public int randomCount = 3;
 }
-
 [System.Serializable]
-public class BoxColorPrefabPair
+public class TrapSettings
 {
-    public GameObject prefab;
-    public ColorType color;
+    public bool useFixed = true;
+    public bool useRandom = false;
+    public List<Vector2> fixedPoints;
+    public int fixedCount = 1;
+    public int randomCount = 2;
 }
-
 [System.Serializable]
-public class SpawnPointGroup
+public class BoxSettings
 {
-    public string groupName;
-    public List<Vector2> points;
+    public List<BoxColorPrefabPair> boxColorPrefabs;
+    public List<SpawnPointGroup> spawnPointGroups;
+    public List<ColorSpawnRequest> colorSpawnRequests;
+    public List<RandomBoxInfo> randomBoxes;
+    public bool useFixed = true;
+    public bool useRandom = false;
 }
-
 [System.Serializable]
-public class ColorSpawnRequest
+public class RandomSettings
 {
-    public ColorType color;
-    public int count;
+    public Vector2Int randomMin = new Vector2Int(-5, -5);
+    public Vector2Int randomMax = new Vector2Int(5, 5);
 }
+#endregion
 
+#region Data Classes
 [System.Serializable]
-public class GoalSpawnInfo
-{
-    public GameObject prefab;
-    public Vector2 startPos;
-    public int count = 1;
-    public Vector2 spacing = new Vector2(1, 0);
-}
-
+public class TrapData { public Vector2 position; public bool triggered = false; public GameObject prefab; public TrapData(Vector2 pos, GameObject p) { position = pos; prefab = p; triggered = false; } }
 [System.Serializable]
-public class RandomBoxInfo
-{
-    public ColorType color;
-    public int count;
-}
+public class BoxColorPrefabPair { public GameObject prefab; public ColorType color; }
+[System.Serializable]
+public class SpawnPointGroup { public string groupName; public List<Vector2> points; }
+[System.Serializable]
+public class ColorSpawnRequest { public ColorType color; public int count; }
+[System.Serializable]
+public class RandomBoxInfo { public ColorType color; public int count; }
+#endregion
