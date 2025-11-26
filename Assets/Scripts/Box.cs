@@ -38,15 +38,14 @@ public class Box : TileObject
         {
             if (hit.CompareTag("Wall"))
                 return false;
-        }
 
-        foreach (var hit in hits)
-        {
-            if (hit.CompareTag("Box") && hit.gameObject != this.gameObject)
+            if (hit.CompareTag("Box"))
             {
                 Box other = hit.GetComponent<Box>();
                 if (other != null)
                 {
+                    if (other.isBlocked) return false;
+
                     if (isMainPush)
                     {
                         bool explode;

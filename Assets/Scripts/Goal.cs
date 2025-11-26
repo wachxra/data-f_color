@@ -35,6 +35,7 @@ public class Goal : TileObject
                 b.isBlocked = true;
                 b.transform.position = transform.position;
                 b.gridPos = Vector2Int.RoundToInt(transform.position);
+                b.colorType = ColorType.Black;
             }
 
             gm.CheckWinCondition();
