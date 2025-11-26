@@ -26,7 +26,7 @@ public class Box : TileObject
         transform.position = new Vector3(pos.x, pos.y, 0);
     }
 
-    public bool TryMoveBox(Vector2 direction)
+    public bool TryMoveBox(Vector2 direction, bool isMainPush = false)
     {
         if (isBlocked) return false;
 
@@ -47,10 +47,25 @@ public class Box : TileObject
                 Box other = hit.GetComponent<Box>();
                 if (other != null)
                 {
-                    bool moved = other.TryMoveBox(direction);
+                    if (isMainPush)
+                    {
+                        bool explode;
+                        GameObject exp;
+                        GameObject result = levelManager.mergeRule.GetResult(colorType, other.colorType, out explode, out exp);
+
+                        if (result != null || explode)
+                        {
+                            MergeAndSpawn(other, target);
+                            return true;
+                        }
+                    }
+
+                    bool moved = other.TryMoveBox(direction, false);
                     if (!moved) return false;
 
-                    MergeAndSpawn(other, target);
+                    if (isMainPush)
+                        MergeAndSpawn(other, target);
+
                     return true;
                 }
             }

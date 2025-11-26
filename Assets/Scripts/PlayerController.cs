@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
             Box box = hit.GetComponent<Box>();
             if (box == null) return;
 
-            bool boxMoved = box.TryMoveBox(direction);
+            bool boxMoved = box.TryMoveBox(direction, true);
 
             if (boxMoved)
             {
