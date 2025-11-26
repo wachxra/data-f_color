@@ -149,7 +149,6 @@ public class Box : TileObject
     private void ExplodeArea()
     {
         Vector2 center = transform.position;
-
         float radius = 1.1f;
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(center, radius);
@@ -171,6 +170,30 @@ public class Box : TileObject
                 if (levelManager != null && levelManager.gameManager != null)
                 {
                     levelManager.gameManager.TakeDamage(1);
+                }
+            }
+        }
+
+        if (levelManager != null && levelManager.traps != null)
+        {
+            foreach (var trap in levelManager.traps)
+            {
+                if (!trap.triggered && Vector2.Distance(trap.position, center) <= radius)
+                {
+                    trap.triggered = true;
+
+                    if (trap.prefab != null)
+                    {
+                        GameObject trapObj = Instantiate(trap.prefab, trap.position, Quaternion.identity);
+                        Box trapBox = trapObj.GetComponent<Box>();
+                        if (trapBox != null)
+                        {
+                            trapBox.levelManager = levelManager;
+                            trapBox.gridPos = Vector2Int.RoundToInt(trap.position);
+                            trapBox.isBlocked = true;
+                            trapBox.StartCoroutine(trapBox.BlinkThenExplode(3f));
+                        }
+                    }
                 }
             }
         }
