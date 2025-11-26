@@ -1790,6 +1790,12 @@ MonoBehaviour:
     count: 1
   boxUseFixed: 0
   boxUseRandom: 1
+  fixedTraps: []
+  randomTraps:
+  - prefab: {fileID: 8932541312508049713, guid: 1040813674b28374a869d285af0f3191, type: 3}
+    count: 5
+  trapUseFixed: 0
+  trapUseRandom: 1
   randomMin: {x: -4, y: -3}
   randomMax: {x: 4, y: 3}
   randomGoalCount: 1
@@ -1805,6 +1811,7 @@ MonoBehaviour:
   - {fileID: 1934513016048172859, guid: 35af334e63e06ce4680ae9701726d125, type: 3}
   goals:
   - {fileID: 5975724926822785782, guid: b91c9d7ee9f19b24ba7473fca78f4f2d, type: 3}
+  traps: []
   gameManager: {fileID: 507008811}
 --- !u!4 &1527128481
 Transform:

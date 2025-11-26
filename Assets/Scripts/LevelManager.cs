@@ -26,6 +26,12 @@ public class LevelManager : MonoBehaviour
     public bool boxUseFixed = true;
     public bool boxUseRandom = false;
 
+    [Header("Bomb Traps")]
+    public List<FixedTrapInfo> fixedTraps = new List<FixedTrapInfo>();
+    public List<RandomTrapInfo> randomTraps = new List<RandomTrapInfo>();
+    public bool trapUseFixed = false;
+    public bool trapUseRandom = false;
+
     [Header("Random All Settings")]
     public Vector2Int randomMin = new Vector2Int(-5, -5);
     public Vector2Int randomMax = new Vector2Int(5, 5);
@@ -36,6 +42,7 @@ public class LevelManager : MonoBehaviour
 
     public List<Box> boxes = new List<Box>();
     public List<Goal> goals = new List<Goal>();
+    public List<TrapData> traps = new List<TrapData>();
 
     public GameManager gameManager;
 
@@ -45,6 +52,7 @@ public class LevelManager : MonoBehaviour
     {
         boxes.Clear();
         goals.Clear();
+        traps.Clear();
     }
 
     public void SpawnObjects()
@@ -57,6 +65,9 @@ public class LevelManager : MonoBehaviour
 
         if (boxUseFixed) SpawnFixedBoxes();
         if (boxUseRandom) SpawnRandomBoxes();
+
+        if (trapUseFixed) SpawnFixedTraps();
+        if (trapUseRandom) SpawnRandomTraps();
     }
 
     void SpawnPlayer()
@@ -161,6 +172,44 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    void SpawnFixedTraps()
+    {
+        if (fixedTraps == null || fixedTraps.Count == 0) return;
+
+        HashSet<Vector2> occupied = new HashSet<Vector2>();
+        foreach (var g in goals) occupied.Add(g.transform.position);
+        foreach (var b in boxes) occupied.Add(b.transform.position);
+        occupied.Add(playerSpawnPoint);
+        foreach (var w in wallPositions) occupied.Add(w);
+
+        foreach (var trapInfo in fixedTraps)
+        {
+            if (occupied.Contains(trapInfo.position)) continue;
+
+            traps.Add(new TrapData(trapInfo.position, trapInfo.prefab));
+            occupied.Add(trapInfo.position);
+        }
+    }
+
+    void SpawnRandomTraps()
+    {
+        HashSet<Vector2> occupied = new HashSet<Vector2>();
+        foreach (var g in goals) occupied.Add(g.transform.position);
+        foreach (var b in boxes) occupied.Add(b.transform.position);
+        occupied.Add(playerSpawnPoint);
+        foreach (var w in wallPositions) occupied.Add(w);
+
+        foreach (var trapInfo in randomTraps)
+        {
+            for (int i = 0; i < trapInfo.count; i++)
+            {
+                Vector2 pos = GetRandomIntPosition(occupied);
+                traps.Add(new TrapData(pos, trapInfo.prefab));
+                occupied.Add(pos);
+            }
+        }
+    }
+
     Vector2 GetRandomIntPosition(HashSet<Vector2> occupied)
     {
         Vector2 pos = Vector2.zero;
@@ -200,6 +249,35 @@ public class LevelManager : MonoBehaviour
     {
         return mergeRule.GetResult(a, b, out explode, out explosionPrefab);
     }
+}
+
+[System.Serializable]
+public class TrapData
+{
+    public Vector2 position;
+    public bool triggered = false;
+    public GameObject prefab;
+
+    public TrapData(Vector2 pos, GameObject p)
+    {
+        position = pos;
+        prefab = p;
+        triggered = false;
+    }
+}
+
+[System.Serializable]
+public class FixedTrapInfo
+{
+    public Vector2 position;
+    public GameObject prefab;
+}
+
+[System.Serializable]
+public class RandomTrapInfo
+{
+    public GameObject prefab;
+    public int count;
 }
 
 [System.Serializable]

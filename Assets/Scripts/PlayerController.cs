@@ -1,9 +1,16 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     private bool isMoving;
+    private LevelManager levelManager;
+
+    private void Awake()
+    {
+        levelManager = Object.FindFirstObjectByType<LevelManager>();
+    }
 
     private void Update()
     {
@@ -53,7 +60,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    System.Collections.IEnumerator MoveTo(Vector2 target)
+    IEnumerator MoveTo(Vector2 target)
     {
         isMoving = true;
         while ((target - (Vector2)transform.position).sqrMagnitude > Mathf.Epsilon)
@@ -62,6 +69,40 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
         transform.position = target;
+
+        CheckForTrap();
+
         isMoving = false;
+    }
+
+    void CheckForTrap()
+    {
+        if (levelManager == null || levelManager.traps == null) return;
+
+        Vector2 playerPos = transform.position;
+
+        foreach (var trap in levelManager.traps)
+        {
+            if (!trap.triggered && Vector2.Distance(trap.position, playerPos) < 0.1f)
+            {
+                trap.triggered = true;
+
+                if (trap.prefab != null)
+                {
+                    GameObject trapObj = Instantiate(trap.prefab, trap.position, Quaternion.identity);
+                    Box trapBox = trapObj.GetComponent<Box>();
+                    if (trapBox != null)
+                    {
+                        trapBox.levelManager = levelManager;
+                        trapBox.gridPos = Vector2Int.RoundToInt(trap.position);
+
+                        trapBox.isBlocked = true;
+                        trapBox.StartCoroutine(trapBox.BlinkThenExplode(3f));
+                    }
+                }
+
+                break;
+            }
+        }
     }
 }
