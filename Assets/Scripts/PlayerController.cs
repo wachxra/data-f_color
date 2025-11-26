@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     void TryMove(Vector2 direction)
     {
         Vector2 targetPos = (Vector2)transform.position + direction;
+
         Collider2D hit = Physics2D.OverlapPoint(targetPos);
 
         if (hit == null)

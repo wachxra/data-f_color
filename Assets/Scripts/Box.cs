@@ -10,6 +10,8 @@ public class Box : TileObject
 
     public LevelManager levelManager;
 
+    [HideInInspector] public bool isBlocked = false;
+
     private void Awake()
     {
         if (levelManager == null)
@@ -26,9 +28,17 @@ public class Box : TileObject
 
     public bool TryMoveBox(Vector2 direction)
     {
+        if (isBlocked) return false;
+
         Vector2 target = (Vector2)transform.position + direction;
 
         Collider2D[] hits = Physics2D.OverlapBoxAll(target, Vector2.one * 0.9f, 0f);
+
+        foreach (var hit in hits)
+        {
+            if (hit.CompareTag("Wall"))
+                return false;
+        }
 
         foreach (var hit in hits)
         {
@@ -37,13 +47,12 @@ public class Box : TileObject
                 Box other = hit.GetComponent<Box>();
                 if (other != null)
                 {
+                    bool moved = other.TryMoveBox(direction);
+                    if (!moved) return false;
+
                     MergeAndSpawn(other, target);
                     return true;
                 }
-            }
-            else
-            {
-                return false;
             }
         }
 
@@ -61,6 +70,8 @@ public class Box : TileObject
 
         if (explode)
         {
+            isBlocked = true;
+
             Destroy(gameObject);
             Destroy(other.gameObject);
 
@@ -72,6 +83,7 @@ public class Box : TileObject
                 {
                     explodeBox.levelManager = levelManager;
                     explodeBox.gridPos = Vector2Int.RoundToInt(spawnPos);
+                    explodeBox.isBlocked = true;
                     explodeBox.StartCoroutine(explodeBox.BlinkThenExplode(3f));
                 }
             }
