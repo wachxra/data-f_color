@@ -13,10 +13,12 @@ public class BoxMergeRule : ScriptableObject
     }
 
     public MergeEntry[] mergeRules;
+    public GameObject explosionPrefab;
 
-    public GameObject GetResult(ColorType a, ColorType b, out bool explode)
+    public GameObject GetResult(ColorType a, ColorType b, out bool explode, out GameObject usedExplosionPrefab)
     {
         explode = false;
+        usedExplosionPrefab = null;
 
         foreach (var rule in mergeRules)
         {
@@ -26,6 +28,10 @@ public class BoxMergeRule : ScriptableObject
             if (match)
             {
                 explode = rule.explodeIfMatched;
+
+                if (explode)
+                    usedExplosionPrefab = explosionPrefab;
+
                 return rule.resultPrefab;
             }
         }

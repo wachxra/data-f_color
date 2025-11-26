@@ -3,7 +3,6 @@
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    private Vector2 moveInput;
     private bool isMoving;
 
     private void Update()
@@ -34,14 +33,22 @@ public class PlayerController : MonoBehaviour
         else if (hit.CompareTag("Box"))
         {
             Box box = hit.GetComponent<Box>();
-            Vector2 boxTarget = targetPos + direction;
-            Collider2D boxHit = Physics2D.OverlapPoint(boxTarget);
+            if (box == null) return;
 
-            if (boxHit == null || boxHit.CompareTag("Box"))
+            bool boxMoved = box.TryMoveBox(direction);
+
+            if (boxMoved)
             {
-                box.Move(direction);
                 StartCoroutine(MoveTo(targetPos));
             }
+            else
+            {
+                return;
+            }
+        }
+        else
+        {
+            return;
         }
     }
 
