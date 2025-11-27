@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5836177901607592095}
   m_Layer: 0
   m_Name: Box_Bomb
-  m_TagString: Box
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
