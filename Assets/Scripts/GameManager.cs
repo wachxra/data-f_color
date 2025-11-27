@@ -18,8 +18,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Player HP")]
     public int playerHP = 3;
-
-    [Header("Player HP UI")]
     public List<Image> heartImages;
 
     public int currentGroupIndex = 0;
@@ -123,18 +121,21 @@ public class GameManager : MonoBehaviour
 
         if (levelManager != null && nextIndex < levelManager.levelGroups.Count)
         {
+            var nextGroup = levelManager.levelGroups[nextIndex];
+
+            GameObject player = levelManager.playerInstance;
+            if (player != null)
+            {
+                player.transform.position = nextGroup.playerSettings.spawnPoint;
+            }
+
             levelManager.ClearCurrentLevel();
+
             currentGroupIndex = nextIndex;
             levelManager.SpawnLevel(currentGroupIndex);
 
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
-            {
-                player.transform.position = levelManager.levelGroups[currentGroupIndex].playerSettings.spawnPoint;
-            }
-
             UpdateGroupGoalsTarget();
-            Debug.Log("Advanced to Group: " + currentGroupIndex);
+            Debug.Log("Group: " + currentGroupIndex);
         }
         else
         {
@@ -144,7 +145,7 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
-        Debug.Log("You Win! All groups completed!");
+        Debug.Log("You Win!");
         Time.timeScale = 0f;
         if (winPanel != null)
             winPanel.SetActive(true);

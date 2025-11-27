@@ -701,9 +701,9 @@ MonoBehaviour:
   totalGoalsCurrentGroup: 0
   playerHP: 3
   heartImages:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 646737662}
+  - {fileID: 1355056390}
+  - {fileID: 1343461737}
   currentGroupIndex: 0
 --- !u!4 &80567344
 Transform:
@@ -4820,7 +4820,74 @@ MonoBehaviour:
       fixedPoints:
       - {x: 9, y: -24}
       - {x: 9, y: -23}
-      - {x: 9, y: -22}
+      - {x: 9, y: -23}
+      fixedCount: 3
+      randomCount: 3
+    randomSettings:
+      randomMin: {x: 12, y: -17}
+      randomMax: {x: 16, y: -23}
+  - groupName: 03
+    boundMin: {x: -9, y: -36}
+    boundMax: {x: 19, y: -57}
+    innerBounds: []
+    playerSettings:
+      spawnPoint: {x: -1, y: -25}
+      useFixed: 1
+    wallSettings:
+      wallPositions:
+      - {x: 10, y: -16}
+      - {x: 10, y: -17}
+      - {x: 10, y: -18}
+      - {x: 10, y: -19}
+      - {x: 10, y: -20}
+      - {x: 10, y: -21}
+      - {x: 10, y: -22}
+      - {x: 10, y: -23}
+      - {x: 10, y: -24}
+      useFixed: 1
+    goalSettings:
+      useFixed: 1
+      useRandom: 0
+      fixedPoints:
+      - {x: 14, y: -20}
+      fixedCount: 1
+      randomCount: 0
+    doorSettings:
+      useFixed: 1
+      useRandom: 0
+      fixedPoints:
+      - {x: 17, y: -20}
+      fixedCount: 1
+      randomCount: 1
+    boxSettings:
+      spawnPoints:
+      - {x: 5, y: -18}
+      - {x: 3, y: -22}
+      colorSpawnRequests:
+      - color: 1
+        count: 2
+      - color: 3
+        count: 0
+      - color: 2
+        count: 0
+      randomBoxes:
+      - color: 1
+        count: 1
+      - color: 2
+        count: 1
+      - color: 3
+        count: 1
+      - color: 7
+        count: 0
+      useFixed: 1
+      useRandom: 1
+    trapSettings:
+      useFixed: 1
+      useRandom: 0
+      fixedPoints:
+      - {x: 9, y: -24}
+      - {x: 9, y: -23}
+      - {x: 9, y: -23}
       fixedCount: 3
       randomCount: 3
     randomSettings:

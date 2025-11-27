@@ -15,6 +15,8 @@ public class LevelManager : MonoBehaviour
     public BoxMergeRule mergeRule;
     public GameManager gameManager;
 
+    [HideInInspector] public GameObject playerInstance;
+
     [HideInInspector] public List<Box> boxes = new List<Box>();
     [HideInInspector] public List<Goal> goals = new List<Goal>();
     [HideInInspector] public List<Door> doors = new List<Door>();
@@ -92,7 +94,7 @@ public class LevelManager : MonoBehaviour
 
         var group = levelGroups[groupIndex];
 
-        if (groupIndex == 0 && group.playerSettings.useFixed)
+        if (groupIndex == 0 && playerInstance == null && group.playerSettings.useFixed)
         {
             SpawnPlayer(group.playerSettings);
         }
@@ -131,7 +133,7 @@ public class LevelManager : MonoBehaviour
     #region Spawn Methods
     void SpawnPlayer(PlayerSettings settings)
     {
-        Instantiate(playerPrefab, settings.spawnPoint, Quaternion.identity);
+        playerInstance = Instantiate(playerPrefab, settings.spawnPoint, Quaternion.identity);
     }
 
     void SpawnWalls(WallSettings settings)
