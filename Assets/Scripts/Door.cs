@@ -5,6 +5,7 @@ public class Door : MonoBehaviour
     [Header("Door Status")]
     public bool isOpen = false;
     public bool isFinalDoor = false;
+
     public Vector2 nextSpawnPosition;
 
     private SpriteRenderer sr;
@@ -47,8 +48,6 @@ public class Door : MonoBehaviour
         }
         else
         {
-            player.transform.position = nextSpawnPosition;
-
             if (gm != null) gm.AdvanceLevel();
         }
     }

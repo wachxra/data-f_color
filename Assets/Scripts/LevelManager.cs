@@ -20,11 +20,19 @@ public class LevelManager : MonoBehaviour
     [HideInInspector] public List<Door> doors = new List<Door>();
     [HideInInspector] public List<TrapData> traps = new List<TrapData>();
 
-    [HideInInspector] public List<List<Goal>> goalsByGroup = new List<List<Goal>>();
-    [HideInInspector] public List<List<Door>> doorsByGroup = new List<List<Door>>();
+    [HideInInspector] public List<GameObject> spawnedWalls = new List<GameObject>();
 
     [Header("Level Groups")]
     public List<LevelGroup> levelGroups;
+
+    void Awake()
+    {
+        boxes = new List<Box>();
+        goals = new List<Goal>();
+        doors = new List<Door>();
+        traps = new List<TrapData>();
+        spawnedWalls = new List<GameObject>();
+    }
 
     void Start() { }
 
@@ -35,92 +43,89 @@ public class LevelManager : MonoBehaviour
         foreach (var group in levelGroups)
         {
             Gizmos.color = Color.cyan;
-            Vector3 centerMap = new Vector3((group.boundMin.x + group.boundMax.x) / 2f, (group.boundMin.y + group.boundMax.y) / 2f, 0);
-            Vector3 sizeMap = new Vector3(Mathf.Abs(group.boundMax.x - group.boundMin.x) + 1, Mathf.Abs(group.boundMax.y - group.boundMin.y) + 1, 1);
-            Gizmos.DrawWireCube(centerMap, sizeMap);
+            DrawBoundGizmo(group.boundMin, group.boundMax);
 
             if (group.randomSettings != null)
             {
                 Gizmos.color = Color.red;
-                Vector3 centerRand = new Vector3((group.randomSettings.randomMin.x + group.randomSettings.randomMax.x) / 2f, (group.randomSettings.randomMin.y + group.randomSettings.randomMax.y) / 2f, 0);
-                Vector3 sizeRand = new Vector3(Mathf.Abs(group.randomSettings.randomMax.x - group.randomSettings.randomMin.x) + 1, Mathf.Abs(group.randomSettings.randomMax.y - group.randomSettings.randomMin.y) + 1, 1);
-                Gizmos.DrawWireCube(centerRand, sizeRand);
+                DrawBoundGizmo(group.randomSettings.randomMin, group.randomSettings.randomMax);
+            }
+
+            Gizmos.color = new Color(1f, 0.5f, 0f);
+            if (group.innerBounds != null)
+            {
+                foreach (var bound in group.innerBounds)
+                {
+                    DrawBoundGizmo(bound.min, bound.max);
+                }
             }
         }
+    }
+
+    void DrawBoundGizmo(Vector2Int min, Vector2Int max)
+    {
+        Vector3 center = new Vector3((min.x + max.x) / 2f, (min.y + max.y) / 2f, 0);
+        Vector3 size = new Vector3(Mathf.Abs(max.x - min.x) + 1, Mathf.Abs(max.y - min.y) + 1, 1);
+        Gizmos.DrawWireCube(center, size);
+    }
+
+    public void ClearCurrentLevel()
+    {
+        foreach (var b in boxes) if (b != null) Destroy(b.gameObject);
+        boxes.Clear();
+
+        foreach (var g in goals) if (g != null) Destroy(g.gameObject);
+        goals.Clear();
+
+        foreach (var d in doors) if (d != null) Destroy(d.gameObject);
+        doors.Clear();
+
+        foreach (var w in spawnedWalls) if (w != null) Destroy(w);
+        spawnedWalls.Clear();
+
+        traps.Clear();
+    }
+
+    public void SpawnLevel(int groupIndex)
+    {
+        if (groupIndex < 0 || groupIndex >= levelGroups.Count) return;
+
+        var group = levelGroups[groupIndex];
+
+        if (groupIndex == 0 && group.playerSettings.useFixed)
+        {
+            SpawnPlayer(group.playerSettings);
+        }
+
+        if (group.wallSettings.useFixed) SpawnWalls(group.wallSettings);
+
+        if (group.goalSettings.useFixed && group.goalSettings.fixedCount > 0)
+            SpawnFixedGoals(group.goalSettings, group.randomSettings);
+        if (group.goalSettings.useRandom && group.goalSettings.randomCount > 0)
+            SpawnRandomGoals(group.goalSettings, group.randomSettings);
+
+        if (group.doorSettings.useFixed && group.doorSettings.fixedCount > 0)
+            SpawnFixedDoors(group.doorSettings, group.randomSettings, groupIndex);
+        if (group.doorSettings.useRandom && group.doorSettings.randomCount > 0)
+            SpawnRandomDoors(group.doorSettings, group.randomSettings, groupIndex);
+
+        if (group.boxSettings.useFixed) SpawnFixedBoxes(group.boxSettings, group.randomSettings);
+        if (group.boxSettings.useRandom) SpawnRandomBoxes(group.boxSettings, group.randomSettings);
+
+        if (group.trapSettings.useFixed && group.trapSettings.fixedCount > 0)
+            SpawnFixedTraps(group.trapSettings);
+        if (group.trapSettings.useRandom && group.trapSettings.randomCount > 0)
+            SpawnRandomTraps(group.trapSettings, group.randomSettings);
     }
 
     public void LoadLevelData()
     {
-        boxes.Clear();
-        goals.Clear();
-        if (doors == null) doors = new List<Door>(); else doors.Clear();
-        traps.Clear();
-
-        goalsByGroup.Clear();
-        doorsByGroup.Clear();
+        ClearCurrentLevel();
     }
 
     public void SpawnObjects()
     {
-        LoadLevelData();
-
-        for (int i = 0; i < levelGroups.Count; i++)
-        {
-            var group = levelGroups[i];
-
-            int goalsStartIndex = goals.Count;
-            int doorsStartIndex = doors.Count;
-
-            if (i == 0 && group.playerSettings.useFixed)
-            {
-                SpawnPlayer(group.playerSettings);
-            }
-
-            if (group.wallSettings.useFixed) SpawnWalls(group.wallSettings);
-
-            if (group.goalSettings.useFixed && group.goalSettings.fixedCount > 0)
-                SpawnFixedGoals(group.goalSettings, group.randomSettings);
-            if (group.goalSettings.useRandom && group.goalSettings.randomCount > 0)
-                SpawnRandomGoals(group.goalSettings, group.randomSettings);
-
-            if (group.doorSettings.useFixed && group.doorSettings.fixedCount > 0)
-                SpawnFixedDoors(group.doorSettings, group.randomSettings);
-            if (group.doorSettings.useRandom && group.doorSettings.randomCount > 0)
-                SpawnRandomDoors(group.doorSettings, group.randomSettings);
-
-            if (group.boxSettings.useFixed) SpawnFixedBoxes(group.boxSettings, group.randomSettings);
-            if (group.boxSettings.useRandom) SpawnRandomBoxes(group.boxSettings, group.randomSettings);
-
-            if (group.trapSettings.useFixed && group.trapSettings.fixedCount > 0)
-                SpawnFixedTraps(group.trapSettings);
-            if (group.trapSettings.useRandom && group.trapSettings.randomCount > 0)
-                SpawnRandomTraps(group.trapSettings, group.randomSettings);
-
-            List<Goal> currentGroupGoals = new List<Goal>();
-            for (int k = goalsStartIndex; k < goals.Count; k++)
-            {
-                currentGroupGoals.Add(goals[k]);
-            }
-            goalsByGroup.Add(currentGroupGoals);
-
-            List<Door> currentGroupDoors = new List<Door>();
-            for (int k = doorsStartIndex; k < doors.Count; k++)
-            {
-                Door d = doors[k];
-                currentGroupDoors.Add(d);
-
-                d.CloseDoor();
-
-                bool isLastGroup = (i == levelGroups.Count - 1);
-                d.isFinalDoor = isLastGroup;
-
-                if (!isLastGroup && (i + 1) < levelGroups.Count)
-                {
-                    d.nextSpawnPosition = levelGroups[i + 1].playerSettings.spawnPoint;
-                }
-            }
-            doorsByGroup.Add(currentGroupDoors);
-        }
+        SpawnLevel(0);
     }
 
     #region Spawn Methods
@@ -133,7 +138,10 @@ public class LevelManager : MonoBehaviour
     {
         if (wallPrefab == null) return;
         foreach (var pos in settings.wallPositions)
-            Instantiate(wallPrefab, pos, Quaternion.identity);
+        {
+            GameObject w = Instantiate(wallPrefab, pos, Quaternion.identity);
+            spawnedWalls.Add(w);
+        }
     }
 
     void SpawnFixedGoals(GoalSettings settings, RandomSettings random)
@@ -166,7 +174,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    void SpawnFixedDoors(DoorSettings settings, RandomSettings random)
+    void SpawnFixedDoors(DoorSettings settings, RandomSettings random, int groupIndex)
     {
         HashSet<Vector2> occupied = GetOccupiedPositions();
         List<Vector2> availablePoints = new List<Vector2>();
@@ -182,11 +190,16 @@ public class LevelManager : MonoBehaviour
             GameObject d = Instantiate(doorPrefab, pos, Quaternion.identity);
 
             Door doorComp = d.GetComponent<Door>();
-            if (doorComp != null) doors.Add(doorComp);
+            if (doorComp != null)
+            {
+                doorComp.CloseDoor();
+                doorComp.isFinalDoor = (groupIndex == levelGroups.Count - 1);
+                doors.Add(doorComp);
+            }
         }
     }
 
-    void SpawnRandomDoors(DoorSettings settings, RandomSettings random)
+    void SpawnRandomDoors(DoorSettings settings, RandomSettings random, int groupIndex)
     {
         HashSet<Vector2> occupied = GetOccupiedPositions();
         for (int i = 0; i < settings.randomCount; i++)
@@ -197,6 +210,8 @@ public class LevelManager : MonoBehaviour
             Door doorComp = d.GetComponent<Door>();
             if (doorComp != null)
             {
+                doorComp.CloseDoor();
+                doorComp.isFinalDoor = (groupIndex == levelGroups.Count - 1);
                 doors.Add(doorComp);
                 occupied.Add(pos);
             }
@@ -334,15 +349,25 @@ public class LevelManager : MonoBehaviour
     #endregion
 }
 
+[System.Serializable]
+public class BoundData
+{
+    public Vector2Int min;
+    public Vector2Int max;
+}
+
 #region Settings & LevelGroup
 [System.Serializable]
 public class LevelGroup
 {
     public string groupName;
 
-    [Header("Map Bounds")]
+    [Header("Map Bounds (Walkable Area)")]
     public Vector2Int boundMin = new Vector2Int(-10, -10);
     public Vector2Int boundMax = new Vector2Int(10, 10);
+
+    [Header("Inner Obstacles (Non-Walkable Bounds)")]
+    public List<BoundData> innerBounds;
 
     [Header("Player")]
     public PlayerSettings playerSettings;
@@ -366,60 +391,18 @@ public class LevelGroup
     public RandomSettings randomSettings;
 }
 
-[System.Serializable]
-public class PlayerSettings { public Vector2 spawnPoint = Vector2.zero; public bool useFixed = true; }
-[System.Serializable]
-public class WallSettings { public List<Vector2> wallPositions; public bool useFixed = true; }
-
-[System.Serializable]
-public class GoalSettings
-{
-    public bool useFixed = true;
-    public bool useRandom = false;
-    public List<Vector2> fixedPoints;
-    public int fixedCount = 1;
-    public int randomCount = 3;
-}
-
-[System.Serializable]
-public class DoorSettings
-{
-    public bool useFixed = true;
-    public bool useRandom = false;
-    public List<Vector2> fixedPoints;
-    public int fixedCount = 1;
-    public int randomCount = 1;
-}
-
-[System.Serializable]
-public class TrapSettings
-{
-    public bool useFixed = true;
-    public bool useRandom = false;
-    public List<Vector2> fixedPoints;
-    public int fixedCount = 1;
-    public int randomCount = 2;
-}
-[System.Serializable]
-public class BoxSettings
-{
-    public List<Vector2> spawnPoints;
-    public List<ColorSpawnRequest> colorSpawnRequests;
-    public List<RandomBoxInfo> randomBoxes;
-    public bool useFixed = true;
-    public bool useRandom = false;
-}
-[System.Serializable]
-public class RandomSettings { public Vector2Int randomMin = new Vector2Int(-5, -5); public Vector2Int randomMax = new Vector2Int(5, 5); }
+[System.Serializable] public class PlayerSettings { public Vector2 spawnPoint = Vector2.zero; public bool useFixed = true; }
+[System.Serializable] public class WallSettings { public List<Vector2> wallPositions; public bool useFixed = true; }
+[System.Serializable] public class GoalSettings { public bool useFixed = true; public bool useRandom = false; public List<Vector2> fixedPoints; public int fixedCount = 1; public int randomCount = 3; }
+[System.Serializable] public class DoorSettings { public bool useFixed = true; public bool useRandom = false; public List<Vector2> fixedPoints; public int fixedCount = 1; public int randomCount = 1; }
+[System.Serializable] public class TrapSettings { public bool useFixed = true; public bool useRandom = false; public List<Vector2> fixedPoints; public int fixedCount = 1; public int randomCount = 2; }
+[System.Serializable] public class BoxSettings { public List<Vector2> spawnPoints; public List<ColorSpawnRequest> colorSpawnRequests; public List<RandomBoxInfo> randomBoxes; public bool useFixed = true; public bool useRandom = false; }
+[System.Serializable] public class RandomSettings { public Vector2Int randomMin = new Vector2Int(-5, -5); public Vector2Int randomMax = new Vector2Int(5, 5); }
 #endregion
 
 #region Data Classes
-[System.Serializable]
-public class TrapData { public Vector2 position; public bool triggered = false; public GameObject prefab; public TrapData(Vector2 pos, GameObject p) { position = pos; prefab = p; triggered = false; } }
-[System.Serializable]
-public class BoxColorPrefabPair { public GameObject prefab; public ColorType color; }
-[System.Serializable]
-public class ColorSpawnRequest { public ColorType color; public int count; }
-[System.Serializable]
-public class RandomBoxInfo { public ColorType color; public int count; }
+[System.Serializable] public class TrapData { public Vector2 position; public bool triggered = false; public GameObject prefab; public TrapData(Vector2 pos, GameObject p) { position = pos; prefab = p; triggered = false; } }
+[System.Serializable] public class BoxColorPrefabPair { public GameObject prefab; public ColorType color; }
+[System.Serializable] public class ColorSpawnRequest { public ColorType color; public int count; }
+[System.Serializable] public class RandomBoxInfo { public ColorType color; public int count; }
 #endregion

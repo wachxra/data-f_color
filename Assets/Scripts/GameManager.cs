@@ -49,13 +49,9 @@ public class GameManager : MonoBehaviour
 
     void UpdateGroupGoalsTarget()
     {
-        if (levelManager != null && currentGroupIndex < levelManager.goalsByGroup.Count)
+        if (levelManager != null)
         {
-            totalGoalsCurrentGroup = levelManager.goalsByGroup[currentGroupIndex].Count;
-        }
-        else
-        {
-            totalGoalsCurrentGroup = 0;
+            totalGoalsCurrentGroup = levelManager.goals.Count;
         }
     }
 
@@ -69,20 +65,34 @@ public class GameManager : MonoBehaviour
         int x = Mathf.RoundToInt(targetPos.x);
         int y = Mathf.RoundToInt(targetPos.y);
 
-        bool insideX = x >= currentGroup.boundMin.x && x <= currentGroup.boundMax.x;
+        bool insideOuter = x >= currentGroup.boundMin.x && x <= currentGroup.boundMax.x;
         bool insideY = y >= currentGroup.boundMin.y && y <= currentGroup.boundMax.y;
 
-        return insideX && insideY;
+        if (!insideOuter || !insideY) return false;
+
+        if (currentGroup.innerBounds != null)
+        {
+            foreach (var inner in currentGroup.innerBounds)
+            {
+                bool insideInnerX = x >= inner.min.x && x <= inner.max.x;
+                bool insideInnerY = y >= inner.min.y && y <= inner.max.y;
+
+                if (insideInnerX && insideInnerY)
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     public void CheckWinCondition()
     {
-        if (levelManager == null || currentGroupIndex >= levelManager.goalsByGroup.Count) return;
+        if (levelManager == null) return;
 
         int completedInThisGroup = 0;
-        List<Goal> currentGoals = levelManager.goalsByGroup[currentGroupIndex];
-
-        foreach (Goal g in currentGoals)
+        foreach (Goal g in levelManager.goals)
         {
             if (g != null && g.isCompleted)
                 completedInThisGroup++;
@@ -98,9 +108,9 @@ public class GameManager : MonoBehaviour
 
     void OpenDoorsInCurrentGroup()
     {
-        if (levelManager != null && currentGroupIndex < levelManager.doorsByGroup.Count)
+        if (levelManager != null)
         {
-            foreach (var door in levelManager.doorsByGroup[currentGroupIndex])
+            foreach (var door in levelManager.doors)
             {
                 if (door != null) door.OpenDoor();
             }
@@ -109,9 +119,27 @@ public class GameManager : MonoBehaviour
 
     public void AdvanceLevel()
     {
-        currentGroupIndex++;
-        UpdateGroupGoalsTarget();
-        Debug.Log("Group: " + currentGroupIndex);
+        int nextIndex = currentGroupIndex + 1;
+
+        if (levelManager != null && nextIndex < levelManager.levelGroups.Count)
+        {
+            levelManager.ClearCurrentLevel();
+            currentGroupIndex = nextIndex;
+            levelManager.SpawnLevel(currentGroupIndex);
+
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                player.transform.position = levelManager.levelGroups[currentGroupIndex].playerSettings.spawnPoint;
+            }
+
+            UpdateGroupGoalsTarget();
+            Debug.Log("Advanced to Group: " + currentGroupIndex);
+        }
+        else
+        {
+            WinGame();
+        }
     }
 
     public void WinGame()
@@ -124,7 +152,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("Game Over");
+        Debug.Log("Game Over!");
         Time.timeScale = 0f;
         if (losePanel != null)
             losePanel.SetActive(true);
@@ -159,10 +187,7 @@ public class GameManager : MonoBehaviour
 
         foreach (var heart in heartImages)
         {
-            if (heart != null)
-            {
-                heart.gameObject.SetActive(true);
-            }
+            if (heart != null) heart.gameObject.SetActive(true);
         }
     }
 

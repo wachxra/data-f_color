@@ -2103,7 +2103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &383999566
 Transform:
   m_ObjectHideFlags: 0
@@ -4698,10 +4698,12 @@ MonoBehaviour:
   - {fileID: 5975724926822785782, guid: b91c9d7ee9f19b24ba7473fca78f4f2d, type: 3}
   doors: []
   traps: []
+  spawnedWalls: []
   levelGroups:
   - groupName: 01
     boundMin: {x: -9, y: -6}
     boundMax: {x: 19, y: 4}
+    innerBounds: []
     playerSettings:
       spawnPoint: {x: 0, y: 0}
       useFixed: 1
@@ -4760,6 +4762,7 @@ MonoBehaviour:
   - groupName: 02
     boundMin: {x: -9, y: -25}
     boundMax: {x: 19, y: -15}
+    innerBounds: []
     playerSettings:
       spawnPoint: {x: -1, y: -20}
       useFixed: 1
@@ -4812,10 +4815,13 @@ MonoBehaviour:
       useFixed: 1
       useRandom: 1
     trapSettings:
-      useFixed: 0
+      useFixed: 1
       useRandom: 0
-      fixedPoints: []
-      fixedCount: 0
+      fixedPoints:
+      - {x: 9, y: -24}
+      - {x: 9, y: -23}
+      - {x: 9, y: -22}
+      fixedCount: 3
       randomCount: 3
     randomSettings:
       randomMin: {x: 12, y: -17}
@@ -8035,7 +8041,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1108768322
 Transform:
   m_ObjectHideFlags: 0
@@ -13568,7 +13574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1762858819
 Transform:
   m_ObjectHideFlags: 0
@@ -53986,7 +53992,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2042342718
 Transform:
   m_ObjectHideFlags: 0
