@@ -6,10 +6,12 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     private bool isMoving;
     private LevelManager levelManager;
+    private GameManager gameManager;
 
     private void Awake()
     {
         levelManager = Object.FindFirstObjectByType<LevelManager>();
+        gameManager = Object.FindFirstObjectByType<GameManager>();
     }
 
     private void Update()
@@ -32,6 +34,11 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 targetPos = (Vector2)transform.position + direction;
 
+        if (gameManager != null && !gameManager.IsPositionInsideBounds(targetPos))
+        {
+            return;
+        }
+
         Collider2D hit = Physics2D.OverlapPoint(targetPos);
 
         if (hit == null)
@@ -43,20 +50,26 @@ public class PlayerController : MonoBehaviour
             Box box = hit.GetComponent<Box>();
             if (box == null) return;
 
+            Vector2 boxTargetPos = targetPos + direction;
+            if (gameManager != null && !gameManager.IsPositionInsideBounds(boxTargetPos))
+            {
+                return;
+            }
+
             bool boxMoved = box.TryMoveBox(direction, true);
 
             if (boxMoved)
             {
                 StartCoroutine(MoveTo(targetPos));
             }
-            else
-            {
-                return;
-            }
         }
-        else
+        else if (hit.CompareTag("Door"))
         {
-            return;
+            Door door = hit.GetComponent<Door>();
+            if (door != null && door.isOpen)
+            {
+                door.Enter(gameObject);
+            }
         }
     }
 

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Goal : TileObject
 {
@@ -20,24 +20,14 @@ public class Goal : TileObject
         var sr = GetComponent<SpriteRenderer>();
         if (sr != null) sr.color = Color.green;
 
+        b.isBlocked = true;
+
+        b.transform.position = transform.position;
+        b.gridPos = Vector2Int.RoundToInt(transform.position);
+
         GameManager gm = FindFirstObjectByType<GameManager>();
         if (gm != null)
         {
-            int totalGoals = FindObjectsByType<Goal>(FindObjectsSortMode.None).Length;
-            int completedGoals = 0;
-            foreach (Goal g in FindObjectsByType<Goal>(FindObjectsSortMode.None))
-            {
-                if (g.isCompleted) completedGoals++;
-            }
-
-            if (completedGoals < totalGoals)
-            {
-                b.isBlocked = true;
-                b.transform.position = transform.position;
-                b.gridPos = Vector2Int.RoundToInt(transform.position);
-                b.colorType = ColorType.Black;
-            }
-
             gm.CheckWinCondition();
         }
     }

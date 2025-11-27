@@ -4,6 +4,10 @@ public class CameraController : MonoBehaviour
 {
     public Transform player;
 
+    [Header("Follow Settings")]
+    public bool followPlayerAlways = false;
+    public float smoothSpeed = 5f;
+
     [Header("Camera Bounds")]
     public Vector2 minBound;
     public Vector2 maxBound;
@@ -13,22 +17,18 @@ public class CameraController : MonoBehaviour
     public Vector2 initialPosition;
 
     private Camera cam;
-
     private bool waitingForPlayer = false;
 
     void Start()
     {
         cam = Camera.main;
 
-        if (useInitialPosition)
+        if (useInitialPosition && !followPlayerAlways)
         {
             Vector3 pos = new Vector3(initialPosition.x, initialPosition.y, transform.position.z);
-
             pos.x = Mathf.Clamp(pos.x, minBound.x, maxBound.x);
             pos.y = Mathf.Clamp(pos.y, minBound.y, maxBound.y);
-
             transform.position = pos;
-
             waitingForPlayer = true;
         }
 
@@ -50,13 +50,22 @@ public class CameraController : MonoBehaviour
 
         if (!waitingForPlayer)
         {
-            Vector3 pos = player.position;
-            pos.z = transform.position.z;
+            if (followPlayerAlways)
+            {
+                Vector3 targetPos = new Vector3(player.position.x, player.position.y, transform.position.z);
 
-            pos.x = Mathf.Clamp(pos.x, minBound.x, maxBound.x);
-            pos.y = Mathf.Clamp(pos.y, minBound.y, maxBound.y);
+                transform.position = Vector3.Lerp(transform.position, targetPos, smoothSpeed * Time.deltaTime);
+            }
+            else
+            {
+                Vector3 pos = player.position;
+                pos.z = transform.position.z;
 
-            transform.position = pos;
+                pos.x = Mathf.Clamp(pos.x, minBound.x, maxBound.x);
+                pos.y = Mathf.Clamp(pos.y, minBound.y, maxBound.y);
+
+                transform.position = pos;
+            }
         }
     }
 
@@ -68,6 +77,12 @@ public class CameraController : MonoBehaviour
         if (p != null)
         {
             player = p.transform;
+
+            if (followPlayerAlways)
+            {
+                Vector3 startPos = new Vector3(player.position.x, player.position.y, transform.position.z);
+                transform.position = startPos;
+            }
         }
     }
 
