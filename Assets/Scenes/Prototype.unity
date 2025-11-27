@@ -238,7 +238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &379567502
 Transform:
   m_ObjectHideFlags: 0
@@ -1738,41 +1738,17 @@ MonoBehaviour:
   wallPrefab: {fileID: 8932541312508049713, guid: 88f114597e2015940b5b906e1320aae6, type: 3}
   goalPrefab: {fileID: 6930229712261048652, guid: b91c9d7ee9f19b24ba7473fca78f4f2d, type: 3}
   trapPrefab: {fileID: 8932541312508049713, guid: 1040813674b28374a869d285af0f3191, type: 3}
-  playerSettings:
-    spawnPoint: {x: 0, y: 0}
-    useFixed: 1
-  wallSettings:
-    wallPositions:
-    - {x: 3, y: -1}
-    - {x: 3, y: 0}
-    - {x: 3, y: 1}
-    - {x: 3, y: 2}
-    useFixed: 1
-  goalSettings:
-    useFixed: 0
-    useRandom: 1
-    fixedPoints:
-    - {x: 0, y: -2}
-    fixedCount: 1
-    randomCount: 3
-  trapSettings:
-    useFixed: 0
-    useRandom: 1
-    fixedPoints:
-    - {x: 0, y: -3}
-    fixedCount: 1
-    randomCount: 2
-  boxSettings:
-    boxColorPrefabs: []
-    spawnPointGroups: []
-    colorSpawnRequests: []
-    randomBoxes: []
-    useFixed: 1
-    useRandom: 0
-  randomSettings:
-    randomMin: {x: -4, y: -3}
-    randomMax: {x: 4, y: 3}
+  boxColorPrefabs:
+  - prefab: {fileID: 3696353496858076381, guid: 5443ad03b869748438f66c944f70dae6, type: 3}
+    color: 1
+  - prefab: {fileID: 6106460097954355088, guid: 3123b80a73a973941baca9994e865d66, type: 3}
+    color: 2
+  - prefab: {fileID: 529933411678267357, guid: 9f53f5431577c7745befe4d3352ccbcb, type: 3}
+    color: 3
+  - prefab: {fileID: 5880168608502538538, guid: b8c22f8a0163ee9468e8a7d7fba44d04, type: 3}
+    color: 7
   mergeRule: {fileID: 11400000, guid: dfc738874d8535e43bca0a06d324ba50, type: 2}
+  gameManager: {fileID: 507008811}
   boxes:
   - {fileID: 2065471936862817276, guid: 5443ad03b869748438f66c944f70dae6, type: 3}
   - {fileID: 2629877208299223552, guid: 3123b80a73a973941baca9994e865d66, type: 3}
@@ -1785,7 +1761,46 @@ MonoBehaviour:
   goals:
   - {fileID: 5975724926822785782, guid: b91c9d7ee9f19b24ba7473fca78f4f2d, type: 3}
   traps: []
-  gameManager: {fileID: 507008811}
+  levelGroups:
+  - groupName: 01
+    playerSettings:
+      spawnPoint: {x: 0, y: 0}
+      useFixed: 1
+    wallSettings:
+      wallPositions:
+      - {x: 3, y: -1}
+      - {x: 3, y: 0}
+      - {x: 3, y: 1}
+      useFixed: 1
+    goalSettings:
+      useFixed: 0
+      useRandom: 1
+      fixedPoints: []
+      fixedCount: 0
+      randomCount: 3
+    boxSettings:
+      spawnPoints: []
+      colorSpawnRequests: []
+      randomBoxes:
+      - color: 1
+        count: 2
+      - color: 2
+        count: 3
+      - color: 3
+        count: 1
+      - color: 7
+        count: 1
+      useFixed: 0
+      useRandom: 1
+    trapSettings:
+      useFixed: 0
+      useRandom: 1
+      fixedPoints: []
+      fixedCount: 0
+      randomCount: 3
+    randomSettings:
+      randomMin: {x: -4, y: -3}
+      randomMax: {x: 4, y: 3}
 --- !u!4 &1527128481
 Transform:
   m_ObjectHideFlags: 0
