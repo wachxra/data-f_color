@@ -1,0 +1,1508 @@
+fileFormatVersion: 2
+guid: 160788e3481f7c14db88efb45471faa7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7689404845766683071
+    second: dOOR porb_0
+  - first:
+      213: 2667937734283186701
+    second: dOOR porb_1
+  - first:
+      213: 2856781489495691255
+    second: dOOR porb_2
+  - first:
+      213: 3314965319805682794
+    second: dOOR porb_3
+  - first:
+      213: -3662783379602040611
+    second: dOOR porb_4
+  - first:
+      213: 2641993297079193398
+    second: dOOR porb_5
+  - first:
+      213: 7480429349210892074
+    second: dOOR porb_6
+  - first:
+      213: -7874050254171151803
+    second: dOOR porb_7
+  - first:
+      213: 3760931948337249805
+    second: dOOR porb_8
+  - first:
+      213: -1666657332730654155
+    second: dOOR porb_9
+  - first:
+      213: 6649768843830819392
+    second: dOOR porb_10
+  - first:
+      213: 5800036029889581080
+    second: dOOR porb_11
+  - first:
+      213: 584409656594943785
+    second: dOOR porb_12
+  - first:
+      213: -7238670080258501880
+    second: dOOR porb_13
+  - first:
+      213: -4493623479964642000
+    second: dOOR porb_14
+  - first:
+      213: 4144219677861242391
+    second: dOOR porb_15
+  - first:
+      213: 2897816588277173398
+    second: dOOR porb_16
+  - first:
+      213: -6402521603629048882
+    second: dOOR porb_17
+  - first:
+      213: -6059060913950114989
+    second: dOOR porb_18
+  - first:
+      213: 4492386636135288441
+    second: dOOR porb_19
+  - first:
+      213: -9138677976000231247
+    second: dOOR porb_20
+  - first:
+      213: -2469510500610029187
+    second: dOOR porb_21
+  - first:
+      213: -3529457070362329726
+    second: dOOR porb_22
+  - first:
+      213: 4041883624288339883
+    second: dOOR porb_23
+  - first:
+      213: -6922739214662147787
+    second: dOOR porb_24
+  - first:
+      213: -5583278538299598872
+    second: dOOR porb_25
+  - first:
+      213: 6306413768332418345
+    second: dOOR porb_26
+  - first:
+      213: -5212482273924695761
+    second: dOOR porb_27
+  - first:
+      213: -7270183973097837841
+    second: dOOR porb_28
+  - first:
+      213: -1967094069247811524
+    second: dOOR porb_29
+  - first:
+      213: 6761555176084018249
+    second: dOOR porb_30
+  - first:
+      213: -3216686226028569862
+    second: dOOR porb_31
+  - first:
+      213: 1349522967472190562
+    second: dOOR porb_32
+  - first:
+      213: -1140991860200391038
+    second: dOOR porb_33
+  - first:
+      213: 1283588581921135310
+    second: dOOR porb_34
+  - first:
+      213: 1205076728778839715
+    second: dOOR porb_35
+  - first:
+      213: -376657307149380940
+    second: dOOR porb_36
+  - first:
+      213: -3419145271870585705
+    second: dOOR porb_37
+  - first:
+      213: -6207615135874443730
+    second: dOOR porb_38
+  - first:
+      213: -743814209542948984
+    second: dOOR porb_39
+  - first:
+      213: 9218174768725783300
+    second: dOOR porb_40
+  - first:
+      213: 6655739975714729118
+    second: dOOR porb_41
+  - first:
+      213: 2730148681079621510
+    second: dOOR porb_42
+  - first:
+      213: -5266603545846504892
+    second: dOOR porb_43
+  - first:
+      213: -6080427826024181948
+    second: dOOR porb_44
+  - first:
+      213: 142213301635716090
+    second: dOOR porb_45
+  - first:
+      213: 2442389275507290895
+    second: dOOR porb_46
+  - first:
+      213: 1363239579272639628
+    second: dOOR porb_47
+  - first:
+      213: -6329098464968781166
+    second: dOOR porb_48
+  - first:
+      213: 8426403669088357715
+    second: dOOR porb_49
+  - first:
+      213: -4023705602737979693
+    second: dOOR porb_50
+  - first:
+      213: -3395763599758438055
+    second: dOOR porb_51
+  - first:
+      213: -9126663646149738925
+    second: dOOR porb_52
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dOOR porb_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 447
+        width: 34
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb9271e87f046ba60800000000000000
+      internalID: 7689404845766683071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_1
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 450
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d025fc6eb3b660520800000000000000
+      internalID: 2667937734283186701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_2
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 447
+        width: 34
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ff4d4af0a355a720800000000000000
+      internalID: 2856781489495691255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_3
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 450
+        width: 28
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a64c1c9156f110e20800000000000000
+      internalID: 3314965319805682794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_4
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 477
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd89d992ced2b2dc0800000000000000
+      internalID: -3662783379602040611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_5
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 456
+        width: 7
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63f4e53e7ee3aa420800000000000000
+      internalID: 2641993297079193398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_6
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 451
+        width: 58
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a272f1f2cd2dfc760800000000000000
+      internalID: 7480429349210892074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_7
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 448
+        width: 29
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 542ed882301c9b290800000000000000
+      internalID: -7874050254171151803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_8
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 418
+        width: 48
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0e3f054ea3813430800000000000000
+      internalID: 3760931948337249805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_9
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 358
+        width: 43
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5321a487cf7ded8e0800000000000000
+      internalID: -1666657332730654155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_10
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 386
+        width: 34
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04afefe0889b84c50800000000000000
+      internalID: 6649768843830819392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_11
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 386
+        width: 28
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 810190e0a0edd7050800000000000000
+      internalID: 5800036029889581080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_12
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 354
+        width: 28
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92f46a08c7d3c1800800000000000000
+      internalID: 584409656594943785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_13
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 395
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80391f30ae31b8b90800000000000000
+      internalID: -7238670080258501880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_14
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 388
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0355a52d04173a1c0800000000000000
+      internalID: -4493623479964642000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_15
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 388
+        width: 66
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7166a1a07d9338930800000000000000
+      internalID: 4144219677861242391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_16
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 352
+        width: 29
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69cce7075dc173820800000000000000
+      internalID: 2897816588277173398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_17
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 355
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecb1de4068ca527a0800000000000000
+      internalID: -6402521603629048882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_18
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 381
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35bbc877334e9eba0800000000000000
+      internalID: -6059060913950114989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_19
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 374
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97e4e8808d9285e30800000000000000
+      internalID: 4492386636135288441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_20
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 367
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b802d3bcc4ec2180800000000000000
+      internalID: -9138677976000231247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_21
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 360
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d79ca02a8498abdd0800000000000000
+      internalID: -2469510500610029187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_22
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 292
+        width: 11
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28dff0f8e79d40fc0800000000000000
+      internalID: -3529457070362329726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_23
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 292
+        width: 11
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba7cc21ddb7a71830800000000000000
+      internalID: 4041883624288339883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_24
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 319
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 531656dcc5d7def90800000000000000
+      internalID: -6922739214662147787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_25
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 322
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e7179a30c53482b0800000000000000
+      internalID: -5583278538299598872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_26
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 290
+        width: 50
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92d1614d8e1e48750800000000000000
+      internalID: 6306413768332418345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_27
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 296
+        width: 34
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f29b2b02dfa89a7b0800000000000000
+      internalID: -5212482273924695761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_28
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 260
+        width: 34
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feae3cf023e1b1b90800000000000000
+      internalID: -7270183973097837841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_29
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 255
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c30e4babd5a73b4e0800000000000000
+      internalID: -1967094069247811524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_30
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 260
+        width: 23
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94411bfbb9ed5dd50800000000000000
+      internalID: 6761555176084018249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_31
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 231
+        width: 32
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afadcaf8be80c53d0800000000000000
+      internalID: -3216686226028569862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_32
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 231
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26439642df77ab210800000000000000
+      internalID: 1349522967472190562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_33
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 260
+        width: 34
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28eb429c2f16a20f0800000000000000
+      internalID: -1140991860200391038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_34
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 240
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eca1827b30930d110800000000000000
+      internalID: 1283588581921135310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_35
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 233
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a6d3f966ea49b010800000000000000
+      internalID: 1205076728778839715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_36
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 233
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b25e4dbc28d5caf0800000000000000
+      internalID: -376657307149380940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_37
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 162
+        width: 96
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79482ba9d71cc80d0800000000000000
+      internalID: -3419145271870585705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_38
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 196
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e269ddb5cee1ad9a0800000000000000
+      internalID: -6207615135874443730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_39
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 168
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 887fd45dae07da5f0800000000000000
+      internalID: -743814209542948984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_40
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 159
+        width: 34
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4037e57bc198def70800000000000000
+      internalID: 9218174768725783300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_41
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 131
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9ce7d98e30fd5c50800000000000000
+      internalID: 6655739975714729118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_42
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 103
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68780cfa2cf63e520800000000000000
+      internalID: 2730148681079621510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_43
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 37
+        width: 59
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 442a10d8af349e6b0800000000000000
+      internalID: -5266603545846504892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_44
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 9
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44f8d639b1bfd9ba0800000000000000
+      internalID: -6080427826024181948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_45
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 7
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af3155e8e3e39f100800000000000000
+      internalID: 142213301635716090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_46
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 5
+        width: 26
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f03f5d11b1c15e120800000000000000
+      internalID: 2442389275507290895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_47
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 5
+        width: 26
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c847c42bc233be210800000000000000
+      internalID: 1363239579272639628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_48
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 5
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 292d017aa768a28a0800000000000000
+      internalID: -6329098464968781166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_49
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 2
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35d4f06fd7990f470800000000000000
+      internalID: 8426403669088357715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_50
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 6
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3debd04a21de828c0800000000000000
+      internalID: -4023705602737979693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_51
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 7
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 951523f5ff2dfd0d0800000000000000
+      internalID: -3395763599758438055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dOOR porb_52
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 6
+        width: 33
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35ef5cad4c3975180800000000000000
+      internalID: -9126663646149738925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      dOOR porb_0: 7689404845766683071
+      dOOR porb_1: 2667937734283186701
+      dOOR porb_10: 6649768843830819392
+      dOOR porb_11: 5800036029889581080
+      dOOR porb_12: 584409656594943785
+      dOOR porb_13: -7238670080258501880
+      dOOR porb_14: -4493623479964642000
+      dOOR porb_15: 4144219677861242391
+      dOOR porb_16: 2897816588277173398
+      dOOR porb_17: -6402521603629048882
+      dOOR porb_18: -6059060913950114989
+      dOOR porb_19: 4492386636135288441
+      dOOR porb_2: 2856781489495691255
+      dOOR porb_20: -9138677976000231247
+      dOOR porb_21: -2469510500610029187
+      dOOR porb_22: -3529457070362329726
+      dOOR porb_23: 4041883624288339883
+      dOOR porb_24: -6922739214662147787
+      dOOR porb_25: -5583278538299598872
+      dOOR porb_26: 6306413768332418345
+      dOOR porb_27: -5212482273924695761
+      dOOR porb_28: -7270183973097837841
+      dOOR porb_29: -1967094069247811524
+      dOOR porb_3: 3314965319805682794
+      dOOR porb_30: 6761555176084018249
+      dOOR porb_31: -3216686226028569862
+      dOOR porb_32: 1349522967472190562
+      dOOR porb_33: -1140991860200391038
+      dOOR porb_34: 1283588581921135310
+      dOOR porb_35: 1205076728778839715
+      dOOR porb_36: -376657307149380940
+      dOOR porb_37: -3419145271870585705
+      dOOR porb_38: -6207615135874443730
+      dOOR porb_39: -743814209542948984
+      dOOR porb_4: -3662783379602040611
+      dOOR porb_40: 9218174768725783300
+      dOOR porb_41: 6655739975714729118
+      dOOR porb_42: 2730148681079621510
+      dOOR porb_43: -5266603545846504892
+      dOOR porb_44: -6080427826024181948
+      dOOR porb_45: 142213301635716090
+      dOOR porb_46: 2442389275507290895
+      dOOR porb_47: 1363239579272639628
+      dOOR porb_48: -6329098464968781166
+      dOOR porb_49: 8426403669088357715
+      dOOR porb_5: 2641993297079193398
+      dOOR porb_50: -4023705602737979693
+      dOOR porb_51: -3395763599758438055
+      dOOR porb_52: -9126663646149738925
+      dOOR porb_6: 7480429349210892074
+      dOOR porb_7: -7874050254171151803
+      dOOR porb_8: 3760931948337249805
+      dOOR porb_9: -1666657332730654155
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
