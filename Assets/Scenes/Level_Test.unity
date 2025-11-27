@@ -4685,6 +4685,7 @@ MonoBehaviour:
     color: 7
   mergeRule: {fileID: 11400000, guid: dfc738874d8535e43bca0a06d324ba50, type: 2}
   gameManager: {fileID: 80567343}
+  playerInstance: {fileID: 0}
   boxes:
   - {fileID: 2065471936862817276, guid: 5443ad03b869748438f66c944f70dae6, type: 3}
   - {fileID: 2629877208299223552, guid: 3123b80a73a973941baca9994e865d66, type: 3}
@@ -4827,36 +4828,32 @@ MonoBehaviour:
       randomMin: {x: 12, y: -17}
       randomMax: {x: 16, y: -23}
   - groupName: 03
-    boundMin: {x: -9, y: -36}
-    boundMax: {x: 19, y: -57}
-    innerBounds: []
+    boundMin: {x: -9, y: -57}
+    boundMax: {x: 19, y: -37}
+    innerBounds:
+    - min: {x: -9, y: -47}
+      max: {x: 11, y: -47}
+    - min: {x: 19, y: -47}
+      max: {x: 19, y: -47}
     playerSettings:
-      spawnPoint: {x: -1, y: -25}
+      spawnPoint: {x: 0, y: -42}
       useFixed: 1
     wallSettings:
-      wallPositions:
-      - {x: 10, y: -16}
-      - {x: 10, y: -17}
-      - {x: 10, y: -18}
-      - {x: 10, y: -19}
-      - {x: 10, y: -20}
-      - {x: 10, y: -21}
-      - {x: 10, y: -22}
-      - {x: 10, y: -23}
-      - {x: 10, y: -24}
+      wallPositions: []
       useFixed: 1
     goalSettings:
       useFixed: 1
       useRandom: 0
       fixedPoints:
-      - {x: 14, y: -20}
-      fixedCount: 1
+      - {x: 14, y: -42}
+      - {x: 4, y: -52}
+      fixedCount: 2
       randomCount: 0
     doorSettings:
       useFixed: 1
       useRandom: 0
       fixedPoints:
-      - {x: 17, y: -20}
+      - {x: 17, y: -52}
       fixedCount: 1
       randomCount: 1
     boxSettings:
@@ -4882,7 +4879,7 @@ MonoBehaviour:
       useFixed: 1
       useRandom: 1
     trapSettings:
-      useFixed: 1
+      useFixed: 0
       useRandom: 0
       fixedPoints:
       - {x: 9, y: -24}
