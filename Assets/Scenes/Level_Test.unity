@@ -2103,7 +2103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &383999566
 Transform:
   m_ObjectHideFlags: 0
@@ -4683,6 +4683,12 @@ MonoBehaviour:
     color: 3
   - prefab: {fileID: 5880168608502538538, guid: 4fddada914dc88f40a8b5ed29b4fab6a, type: 3}
     color: 7
+  - prefab: {fileID: 5758012460974483220, guid: 2e190dec1f98ac04d9c5b241250feabf, type: 3}
+    color: 4
+  - prefab: {fileID: 4881619544224899656, guid: 228c3b293bca3d442919cef1fdbf197b, type: 3}
+    color: 6
+  - prefab: {fileID: 6904697248595091301, guid: 01e6e5dd19fc6a14eaeb542cec638633, type: 3}
+    color: 5
   mergeRule: {fileID: 11400000, guid: dfc738874d8535e43bca0a06d324ba50, type: 2}
   gameManager: {fileID: 80567343}
   playerInstance: {fileID: 0}
@@ -4702,8 +4708,8 @@ MonoBehaviour:
   spawnedWalls: []
   levelGroups:
   - groupName: 01
-    boundMin: {x: -9, y: -6}
-    boundMax: {x: 19, y: 4}
+    boundMin: {x: -8, y: -5}
+    boundMax: {x: 18, y: 3}
     innerBounds: []
     playerSettings:
       spawnPoint: {x: 0, y: 0}
@@ -4721,6 +4727,7 @@ MonoBehaviour:
       - {x: 14, y: -1}
       fixedCount: 1
       randomCount: 0
+      randomSettingsIndex: 0
     doorSettings:
       useFixed: 1
       useRandom: 0
@@ -4728,19 +4735,33 @@ MonoBehaviour:
       - {x: 17, y: -1}
       fixedCount: 1
       randomCount: 1
-    boxGroups: []
+      randomSettingsIndex: 0
+    boxGroups:
+    - spawnPoints: []
+      colorSpawnRequests: []
+      randomBoxes:
+      - color: 1
+        count: 1
+      - color: 2
+        count: 1
+      - color: 3
+        count: 1
+      useFixed: 0
+      useRandom: 1
+      randomSettingsIndex: 0
     trapSettings:
       useFixed: 0
       useRandom: 0
       fixedPoints: []
       fixedCount: 0
       randomCount: 3
-    randomSettings:
-      randomMin: {x: -4, y: -3}
-      randomMax: {x: 4, y: 3}
+      randomSettingsIndex: 0
+    randomSettingsList:
+    - randomMin: {x: -6, y: -4}
+      randomMax: {x: 8, y: 2}
   - groupName: 02
-    boundMin: {x: -9, y: -25}
-    boundMax: {x: 19, y: -15}
+    boundMin: {x: -8, y: -24}
+    boundMax: {x: 18, y: -16}
     innerBounds: []
     playerSettings:
       spawnPoint: {x: -1, y: -20}
@@ -4764,6 +4785,7 @@ MonoBehaviour:
       - {x: 14, y: -20}
       fixedCount: 1
       randomCount: 0
+      randomSettingsIndex: 0
     doorSettings:
       useFixed: 1
       useRandom: 0
@@ -4771,27 +4793,49 @@ MonoBehaviour:
       - {x: 17, y: -20}
       fixedCount: 1
       randomCount: 1
-    boxGroups: []
+      randomSettingsIndex: 0
+    boxGroups:
+    - spawnPoints: []
+      colorSpawnRequests: []
+      randomBoxes:
+      - color: 1
+        count: 2
+      useFixed: 0
+      useRandom: 1
+      randomSettingsIndex: 0
+    - spawnPoints: []
+      colorSpawnRequests: []
+      randomBoxes:
+      - color: 1
+        count: 1
+      - color: 2
+        count: 1
+      - color: 3
+        count: 1
+      useFixed: 0
+      useRandom: 1
+      randomSettingsIndex: 1
     trapSettings:
-      useFixed: 1
+      useFixed: 0
       useRandom: 0
       fixedPoints:
       - {x: 9, y: -24}
       - {x: 9, y: -23}
-      - {x: 9, y: -23}
+      - {x: 9, y: -22}
       fixedCount: 3
       randomCount: 3
-    randomSettings:
-      randomMin: {x: 12, y: -17}
+      randomSettingsIndex: 0
+    randomSettingsList:
+    - randomMin: {x: -6, y: -17}
+      randomMax: {x: 8, y: -23}
+    - randomMin: {x: 11, y: -17}
       randomMax: {x: 16, y: -23}
   - groupName: 03
-    boundMin: {x: -9, y: -57}
-    boundMax: {x: 19, y: -37}
+    boundMin: {x: -8, y: -56}
+    boundMax: {x: 18, y: -38}
     innerBounds:
-    - min: {x: -9, y: -47}
+    - min: {x: -8, y: -47}
       max: {x: 11, y: -47}
-    - min: {x: 19, y: -47}
-      max: {x: 19, y: -47}
     playerSettings:
       spawnPoint: {x: 0, y: -42}
       useFixed: 1
@@ -4832,6 +4876,7 @@ MonoBehaviour:
       - {x: 4, y: -52}
       fixedCount: 2
       randomCount: 0
+      randomSettingsIndex: 0
     doorSettings:
       useFixed: 1
       useRandom: 0
@@ -4839,7 +4884,34 @@ MonoBehaviour:
       - {x: 17, y: -52}
       fixedCount: 1
       randomCount: 1
-    boxGroups: []
+      randomSettingsIndex: 0
+    boxGroups:
+    - spawnPoints: []
+      colorSpawnRequests: []
+      randomBoxes:
+      - color: 3
+        count: 4
+      useFixed: 0
+      useRandom: 1
+      randomSettingsIndex: 0
+    - spawnPoints: []
+      colorSpawnRequests: []
+      randomBoxes:
+      - color: 1
+        count: 2
+      - color: 3
+        count: 2
+      useFixed: 0
+      useRandom: 1
+      randomSettingsIndex: 1
+    - spawnPoints: []
+      colorSpawnRequests: []
+      randomBoxes:
+      - color: 2
+        count: 4
+      useFixed: 0
+      useRandom: 1
+      randomSettingsIndex: 2
     trapSettings:
       useFixed: 0
       useRandom: 0
@@ -4849,9 +4921,14 @@ MonoBehaviour:
       - {x: 9, y: -23}
       fixedCount: 3
       randomCount: 3
-    randomSettings:
-      randomMin: {x: 12, y: -17}
-      randomMax: {x: 16, y: -23}
+      randomSettingsIndex: 0
+    randomSettingsList:
+    - randomMin: {x: -7, y: -45}
+      randomMax: {x: 6, y: -39}
+    - randomMin: {x: 10, y: -45}
+      randomMax: {x: 17, y: -39}
+    - randomMin: {x: 5, y: -55}
+      randomMax: {x: 15, y: -49}
 --- !u!4 &712751505
 Transform:
   m_ObjectHideFlags: 0
@@ -8067,7 +8144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1108768322
 Transform:
   m_ObjectHideFlags: 0
@@ -13600,7 +13677,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1762858819
 Transform:
   m_ObjectHideFlags: 0
@@ -54018,7 +54095,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2042342718
 Transform:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   mergeRules:
   - colorA: 1
     colorB: 2
-    resultPrefab: {fileID: 5758012460974483220, guid: 32da7163fb70e0f4aa5bdd628e942a5a, type: 3}
+    resultPrefab: {fileID: 5758012460974483220, guid: 2e190dec1f98ac04d9c5b241250feabf, type: 3}
     explodeIfMatched: 0
   - colorA: 1
     colorB: 3
