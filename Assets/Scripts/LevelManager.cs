@@ -340,6 +340,15 @@ public class LevelManager : MonoBehaviour
     HashSet<Vector2> GetOccupiedPositions()
     {
         HashSet<Vector2> occupied = new HashSet<Vector2>();
+
+        if (playerInstance != null)
+            occupied.Add(playerInstance.transform.position);
+       
+        if (spawnedWalls != null)
+            foreach (var w in spawnedWalls)
+                if (w != null)
+                    occupied.Add(w.transform.position);
+
         if (goals != null) foreach (var g in goals) if (g != null) occupied.Add(g.transform.position);
         if (doors != null) foreach (var d in doors) if (d != null) occupied.Add(d.transform.position);
         if (boxes != null) foreach (var b in boxes) if (b != null) occupied.Add(b.transform.position);
