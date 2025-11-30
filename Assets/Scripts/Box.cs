@@ -32,7 +32,7 @@ public class Box : TileObject
 
         Vector2 target = (Vector2)transform.position + direction;
 
-        Collider2D[] hits = Physics2D.OverlapBoxAll(target, Vector2.one * 0.9f, 0f);
+        Collider2D[] hits = Physics2D.OverlapPointAll(target);
 
         foreach (var hit in hits)
         {
