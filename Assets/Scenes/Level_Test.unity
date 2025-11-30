@@ -4673,15 +4673,15 @@ MonoBehaviour:
   wallPrefab: {fileID: 8932541312508049713, guid: 88f114597e2015940b5b906e1320aae6, type: 3}
   goalPrefab: {fileID: 7578101074732412656, guid: ba13930a94996c841a714c63eb60f1d2, type: 3}
   doorPrefab: {fileID: 8482718966684760665, guid: e3d00ccdb554072479bf3f7212dce6c7, type: 3}
-  trapPrefab: {fileID: 8932541312508049713, guid: 1040813674b28374a869d285af0f3191, type: 3}
+  trapPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
   boxColorPrefabs:
-  - prefab: {fileID: 3696353496858076381, guid: 5443ad03b869748438f66c944f70dae6, type: 3}
+  - prefab: {fileID: 3696353496858076381, guid: 549dfca954f9c754b905abc67b8d17b0, type: 3}
     color: 1
-  - prefab: {fileID: 6106460097954355088, guid: 3123b80a73a973941baca9994e865d66, type: 3}
+  - prefab: {fileID: 6106460097954355088, guid: abcf4e960f11eaf47a0e640b2574b5c5, type: 3}
     color: 2
-  - prefab: {fileID: 529933411678267357, guid: 9f53f5431577c7745befe4d3352ccbcb, type: 3}
+  - prefab: {fileID: 529933411678267357, guid: 058553f3b02082b45896d1a973b1b3d2, type: 3}
     color: 3
-  - prefab: {fileID: 5880168608502538538, guid: b8c22f8a0163ee9468e8a7d7fba44d04, type: 3}
+  - prefab: {fileID: 5880168608502538538, guid: 4fddada914dc88f40a8b5ed29b4fab6a, type: 3}
     color: 7
   mergeRule: {fileID: 11400000, guid: dfc738874d8535e43bca0a06d324ba50, type: 2}
   gameManager: {fileID: 80567343}
@@ -4728,29 +4728,7 @@ MonoBehaviour:
       - {x: 17, y: -1}
       fixedCount: 1
       randomCount: 1
-    boxSettings:
-      spawnPoints:
-      - {x: 5, y: 3}
-      - {x: 3, y: 0}
-      - {x: 1, y: 1}
-      colorSpawnRequests:
-      - color: 1
-        count: 1
-      - color: 3
-        count: 1
-      - color: 2
-        count: 1
-      randomBoxes:
-      - color: 1
-        count: 1
-      - color: 2
-        count: 1
-      - color: 3
-        count: 1
-      - color: 7
-        count: 0
-      useFixed: 0
-      useRandom: 1
+    boxGroups: []
     trapSettings:
       useFixed: 0
       useRandom: 0
@@ -4793,28 +4771,7 @@ MonoBehaviour:
       - {x: 17, y: -20}
       fixedCount: 1
       randomCount: 1
-    boxSettings:
-      spawnPoints:
-      - {x: 5, y: -18}
-      - {x: 3, y: -22}
-      colorSpawnRequests:
-      - color: 1
-        count: 2
-      - color: 3
-        count: 0
-      - color: 2
-        count: 0
-      randomBoxes:
-      - color: 1
-        count: 1
-      - color: 2
-        count: 1
-      - color: 3
-        count: 1
-      - color: 7
-        count: 0
-      useFixed: 1
-      useRandom: 1
+    boxGroups: []
     trapSettings:
       useFixed: 1
       useRandom: 0
@@ -4882,28 +4839,7 @@ MonoBehaviour:
       - {x: 17, y: -52}
       fixedCount: 1
       randomCount: 1
-    boxSettings:
-      spawnPoints:
-      - {x: 5, y: -18}
-      - {x: 3, y: -22}
-      colorSpawnRequests:
-      - color: 1
-        count: 2
-      - color: 3
-        count: 0
-      - color: 2
-        count: 0
-      randomBoxes:
-      - color: 1
-        count: 1
-      - color: 2
-        count: 1
-      - color: 3
-        count: 1
-      - color: 7
-        count: 0
-      useFixed: 1
-      useRandom: 1
+    boxGroups: []
     trapSettings:
       useFixed: 0
       useRandom: 0

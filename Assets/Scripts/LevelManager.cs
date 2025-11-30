@@ -111,8 +111,17 @@ public class LevelManager : MonoBehaviour
         if (group.doorSettings.useRandom && group.doorSettings.randomCount > 0)
             SpawnRandomDoors(group.doorSettings, group.randomSettings, groupIndex);
 
-        if (group.boxSettings.useFixed) SpawnFixedBoxes(group.boxSettings, group.randomSettings);
-        if (group.boxSettings.useRandom) SpawnRandomBoxes(group.boxSettings, group.randomSettings);
+        if (group.boxGroups != null)
+        {
+            foreach (var boxSet in group.boxGroups)
+            {
+                if (boxSet.useFixed)
+                    SpawnFixedBoxes(boxSet, group.randomSettings);
+
+                if (boxSet.useRandom)
+                    SpawnRandomBoxes(boxSet, group.randomSettings);
+            }
+        }
 
         if (group.trapSettings.useFixed && group.trapSettings.fixedCount > 0)
             SpawnFixedTraps(group.trapSettings);
@@ -383,8 +392,8 @@ public class LevelGroup
     [Header("Doors")]
     public DoorSettings doorSettings;
 
-    [Header("Boxes")]
-    public BoxSettings boxSettings;
+    [Header("Boxes Groups")]
+    public List<BoxSettings> boxGroups;
 
     [Header("Traps")]
     public TrapSettings trapSettings;
