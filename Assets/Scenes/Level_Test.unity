@@ -360,7 +360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &48101400
 Transform:
   m_ObjectHideFlags: 0
@@ -4749,13 +4749,7 @@ MonoBehaviour:
       useFixed: 0
       useRandom: 1
       randomSettingsIndex: 0
-    trapSettings:
-      useFixed: 0
-      useRandom: 0
-      fixedPoints: []
-      fixedCount: 0
-      randomCount: 3
-      randomSettingsIndex: 0
+    trapGroups: []
     randomSettingsList:
     - randomMin: {x: -6, y: -4}
       randomMax: {x: 8, y: 2}
@@ -4815,16 +4809,7 @@ MonoBehaviour:
       useFixed: 0
       useRandom: 1
       randomSettingsIndex: 1
-    trapSettings:
-      useFixed: 0
-      useRandom: 0
-      fixedPoints:
-      - {x: 9, y: -24}
-      - {x: 9, y: -23}
-      - {x: 9, y: -22}
-      fixedCount: 3
-      randomCount: 3
-      randomSettingsIndex: 0
+    trapGroups: []
     randomSettingsList:
     - randomMin: {x: -6, y: -17}
       randomMax: {x: 8, y: -23}
@@ -4912,16 +4897,7 @@ MonoBehaviour:
       useFixed: 0
       useRandom: 1
       randomSettingsIndex: 2
-    trapSettings:
-      useFixed: 0
-      useRandom: 0
-      fixedPoints:
-      - {x: 9, y: -24}
-      - {x: 9, y: -23}
-      - {x: 9, y: -23}
-      fixedCount: 3
-      randomCount: 3
-      randomSettingsIndex: 0
+    trapGroups: []
     randomSettingsList:
     - randomMin: {x: -7, y: -45}
       randomMax: {x: 6, y: -39}
@@ -4929,6 +4905,151 @@ MonoBehaviour:
       randomMax: {x: 17, y: -39}
     - randomMin: {x: 5, y: -55}
       randomMax: {x: 15, y: -49}
+  - groupName: 04
+    boundMin: {x: -8, y: -104}
+    boundMax: {x: 18, y: -66}
+    innerBounds:
+    - min: {x: -8, y: -75}
+      max: {x: -7, y: -75}
+    - min: {x: -1, y: -75}
+      max: {x: 11, y: -75}
+    - min: {x: 17, y: -75}
+      max: {x: 18, y: -75}
+    - min: {x: -8, y: -85}
+      max: {x: 2, y: -85}
+    - min: {x: 8, y: -85}
+      max: {x: 18, y: -85}
+    - min: {x: -8, y: -95}
+      max: {x: -7, y: -95}
+    - min: {x: -1, y: -95}
+      max: {x: 11, y: -95}
+    - min: {x: 17, y: -95}
+      max: {x: 18, y: -95}
+    playerSettings:
+      spawnPoint: {x: 5, y: -70}
+      useFixed: 1
+    wallSettings:
+      wallPositions:
+      - {x: -6, y: -75}
+      - {x: -5, y: -75}
+      - {x: -4, y: -75}
+      - {x: -3, y: -75}
+      - {x: -2, y: -75}
+      - {x: 12, y: -75}
+      - {x: 13, y: -75}
+      - {x: 14, y: -75}
+      - {x: 15, y: -75}
+      - {x: 16, y: -75}
+      - {x: 3, y: -85}
+      - {x: 4, y: -85}
+      - {x: 5, y: -85}
+      - {x: 6, y: -85}
+      - {x: 7, y: -85}
+      - {x: -6, y: -95}
+      - {x: -5, y: -95}
+      - {x: -4, y: -95}
+      - {x: -3, y: -95}
+      - {x: -2, y: -95}
+      - {x: 12, y: -95}
+      - {x: 13, y: -95}
+      - {x: 14, y: -95}
+      - {x: 15, y: -95}
+      - {x: 16, y: -95}
+      useFixed: 1
+    goalSettings:
+      useFixed: 1
+      useRandom: 0
+      fixedPoints:
+      - {x: 5, y: -78}
+      - {x: -4, y: -88}
+      - {x: 15, y: -88}
+      fixedCount: 3
+      randomCount: 0
+      randomSettingsIndex: 0
+    doorSettings:
+      useFixed: 1
+      useRandom: 0
+      fixedPoints:
+      - {x: -6, y: -100}
+      fixedCount: 1
+      randomCount: 0
+      randomSettingsIndex: 0
+    boxGroups:
+    - spawnPoints: []
+      colorSpawnRequests: []
+      randomBoxes:
+      - color: 3
+        count: 6
+      - color: 1
+        count: 2
+      useFixed: 0
+      useRandom: 1
+      randomSettingsIndex: 0
+    - spawnPoints: []
+      colorSpawnRequests: []
+      randomBoxes:
+      - color: 1
+        count: 4
+      useFixed: 0
+      useRandom: 1
+      randomSettingsIndex: 1
+    - spawnPoints: []
+      colorSpawnRequests: []
+      randomBoxes:
+      - color: 1
+        count: 2
+      - color: 2
+        count: 4
+      useFixed: 0
+      useRandom: 1
+      randomSettingsIndex: 2
+    trapGroups:
+    - useFixed: 1
+      useRandom: 0
+      fixedPoints:
+      - {x: -3, y: -96}
+      - {x: -3, y: -97}
+      - {x: -3, y: -98}
+      - {x: -3, y: -99}
+      - {x: -3, y: -100}
+      - {x: -3, y: -101}
+      - {x: -3, y: -102}
+      - {x: -3, y: -103}
+      - {x: -3, y: -104}
+      - {x: -6, y: -74}
+      - {x: -5, y: -74}
+      - {x: -4, y: -74}
+      - {x: -3, y: -74}
+      - {x: -2, y: -74}
+      - {x: 12, y: -74}
+      - {x: 13, y: -74}
+      - {x: 14, y: -74}
+      - {x: 15, y: -74}
+      - {x: 16, y: -74}
+      fixedCount: 19
+      randomCount: 0
+      randomSettingsIndex: 0
+    - useFixed: 0
+      useRandom: 1
+      fixedPoints: []
+      fixedCount: 0
+      randomCount: 2
+      randomSettingsIndex: 2
+    - useFixed: 0
+      useRandom: 1
+      fixedPoints: []
+      fixedCount: 0
+      randomCount: 5
+      randomSettingsIndex: 3
+    randomSettingsList:
+    - randomMin: {x: -6, y: -83}
+      randomMax: {x: 16, y: -77}
+    - randomMin: {x: -6, y: -93}
+      randomMax: {x: 16, y: -87}
+    - randomMin: {x: 0, y: -103}
+      randomMax: {x: 16, y: -97}
+    - randomMin: {x: -6, y: -72}
+      randomMax: {x: 16, y: -68}
 --- !u!4 &712751505
 Transform:
   m_ObjectHideFlags: 0
@@ -5448,7 +5569,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &760241676
 Transform:
   m_ObjectHideFlags: 0
@@ -5628,7 +5749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &766416124
 Transform:
   m_ObjectHideFlags: 0
@@ -5718,7 +5839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &767124404
 Transform:
   m_ObjectHideFlags: 0
@@ -7947,7 +8068,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1086929748
 Transform:
   m_ObjectHideFlags: 0
@@ -15194,7 +15315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1944640249
 Transform:
   m_ObjectHideFlags: 0
@@ -32319,8 +32440,8 @@ Tilemap:
   - first: {x: -6, y: -95, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileIndex: 18
+      m_TileSpriteIndex: 18
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -32329,8 +32450,8 @@ Tilemap:
   - first: {x: -5, y: -95, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileIndex: 18
+      m_TileSpriteIndex: 18
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -32339,8 +32460,8 @@ Tilemap:
   - first: {x: -4, y: -95, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileIndex: 18
+      m_TileSpriteIndex: 18
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -32349,8 +32470,8 @@ Tilemap:
   - first: {x: -3, y: -95, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileIndex: 18
+      m_TileSpriteIndex: 18
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -32359,8 +32480,8 @@ Tilemap:
   - first: {x: -2, y: -95, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileIndex: 18
+      m_TileSpriteIndex: 18
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -32499,8 +32620,8 @@ Tilemap:
   - first: {x: 12, y: -95, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileIndex: 18
+      m_TileSpriteIndex: 18
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -32509,8 +32630,8 @@ Tilemap:
   - first: {x: 13, y: -95, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileIndex: 18
+      m_TileSpriteIndex: 18
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -32519,8 +32640,8 @@ Tilemap:
   - first: {x: 14, y: -95, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileIndex: 18
+      m_TileSpriteIndex: 18
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -32529,8 +32650,8 @@ Tilemap:
   - first: {x: 15, y: -95, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileIndex: 18
+      m_TileSpriteIndex: 18
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -32539,8 +32660,8 @@ Tilemap:
   - first: {x: 16, y: -95, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileIndex: 18
+      m_TileSpriteIndex: 18
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -53764,7 +53885,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: c11496aed4610e1409dbe912096bb376, type: 2}
   - m_RefCount: 152
     m_Data: {fileID: 11400000, guid: a0e7ad7ca9f471442979d96aeefc5754, type: 2}
-  - m_RefCount: 721
+  - m_RefCount: 711
     m_Data: {fileID: 11400000, guid: e35906fec158d4446baf1ccd8cd343ea, type: 2}
   - m_RefCount: 17
     m_Data: {fileID: 11400000, guid: d91240c71437ad54da05e1430a1f65f5, type: 2}
@@ -53784,7 +53905,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 434014f565fa2ec44b588350bc0498db, type: 2}
   - m_RefCount: 37
     m_Data: {fileID: 11400000, guid: 965b4716d507cb44eb689f60593c9edb, type: 2}
-  - m_RefCount: 42
+  - m_RefCount: 52
     m_Data: {fileID: 11400000, guid: f834a2fedf4b82f4ea1526ea58ec7a69, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 627
@@ -53803,7 +53924,7 @@ Tilemap:
     m_Data: {fileID: -529789711, guid: 166e411a845aa2b4c84ba1b8d8d0d128, type: 3}
   - m_RefCount: 202
     m_Data: {fileID: -202282337, guid: 166e411a845aa2b4c84ba1b8d8d0d128, type: 3}
-  - m_RefCount: 721
+  - m_RefCount: 711
     m_Data: {fileID: -788853534, guid: 166e411a845aa2b4c84ba1b8d8d0d128, type: 3}
   - m_RefCount: 17
     m_Data: {fileID: 1071905579, guid: 166e411a845aa2b4c84ba1b8d8d0d128, type: 3}
@@ -53823,7 +53944,7 @@ Tilemap:
     m_Data: {fileID: 1659385661, guid: 166e411a845aa2b4c84ba1b8d8d0d128, type: 3}
   - m_RefCount: 37
     m_Data: {fileID: -955250219, guid: 166e411a845aa2b4c84ba1b8d8d0d128, type: 3}
-  - m_RefCount: 42
+  - m_RefCount: 52
     m_Data: {fileID: -1304855113, guid: 166e411a845aa2b4c84ba1b8d8d0d128, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 3805

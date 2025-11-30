@@ -140,12 +140,19 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        if (group.trapSettings.useFixed && group.trapSettings.fixedCount > 0)
-            SpawnFixedTraps(group.trapSettings);
-        if (group.trapSettings.useRandom && group.trapSettings.randomCount > 0)
+        if (group.trapGroups != null)
         {
-            var rsForTraps = GetRandomSettings(group, group.trapSettings.randomSettingsIndex);
-            SpawnRandomTraps(group.trapSettings, rsForTraps);
+            foreach (var trapSet in group.trapGroups)
+            {
+                if (trapSet.useFixed && trapSet.fixedCount > 0)
+                    SpawnFixedTraps(trapSet);
+
+                if (trapSet.useRandom && trapSet.randomCount > 0)
+                {
+                    var rsForTraps = GetRandomSettings(group, trapSet.randomSettingsIndex);
+                    SpawnRandomTraps(trapSet, rsForTraps);
+                }
+            }
         }
     }
 
@@ -424,8 +431,8 @@ public class LevelGroup
     [Header("Boxes Groups")]
     public List<BoxSettings> boxGroups;
 
-    [Header("Traps")]
-    public TrapSettings trapSettings;
+    [Header("Traps Groups")]
+    public List<TrapSettings> trapGroups;
 
     [Header("Random Settings List")]
     public List<RandomSettings> randomSettingsList;
