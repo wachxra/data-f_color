@@ -14,13 +14,13 @@ public class GameManager : MonoBehaviour
 
     [Header("Goal Tracking")]
     public int goalsCompleted;
-    public int totalGoals;
+    public int totalGoalsCurrentGroup;
 
     [Header("Player HP")]
     public int playerHP = 3;
-
-    [Header("Player HP UI")]
     public List<Image> heartImages;
+
+    public int currentGroupIndex = 0;
 
     void Start()
     {
@@ -32,23 +32,112 @@ public class GameManager : MonoBehaviour
 
     public void StartLevel()
     {
+        currentGroupIndex = 0;
         goalsCompleted = 0;
-        levelManager.LoadLevelData();
-        levelManager.SpawnObjects();
-        totalGoals = levelManager.goals.Count;
+
+        if (levelManager != null)
+        {
+            levelManager.LoadLevelData();
+            levelManager.SpawnObjects();
+            UpdateGroupGoalsTarget();
+        }
+
         ResetHeartsUI();
+    }
+
+    void UpdateGroupGoalsTarget()
+    {
+        if (levelManager != null)
+        {
+            totalGoalsCurrentGroup = levelManager.goals.Count;
+        }
+    }
+
+    public bool IsPositionInsideBounds(Vector2 targetPos)
+    {
+        if (levelManager == null || levelManager.levelGroups == null) return true;
+        if (currentGroupIndex >= levelManager.levelGroups.Count) return false;
+
+        var currentGroup = levelManager.levelGroups[currentGroupIndex];
+
+        int x = Mathf.RoundToInt(targetPos.x);
+        int y = Mathf.RoundToInt(targetPos.y);
+
+        bool insideOuter = x >= currentGroup.boundMin.x && x <= currentGroup.boundMax.x;
+        bool insideY = y >= currentGroup.boundMin.y && y <= currentGroup.boundMax.y;
+
+        if (!insideOuter || !insideY) return false;
+
+        if (currentGroup.innerBounds != null)
+        {
+            foreach (var inner in currentGroup.innerBounds)
+            {
+                bool insideInnerX = x >= inner.min.x && x <= inner.max.x;
+                bool insideInnerY = y >= inner.min.y && y <= inner.max.y;
+
+                if (insideInnerX && insideInnerY)
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     public void CheckWinCondition()
     {
-        goalsCompleted = 0;
+        if (levelManager == null) return;
+
+        int completedInThisGroup = 0;
         foreach (Goal g in levelManager.goals)
         {
-            if (g.isCompleted)
-                goalsCompleted++;
+            if (g != null && g.isCompleted)
+                completedInThisGroup++;
         }
 
-        if (goalsCompleted >= totalGoals)
+        goalsCompleted = completedInThisGroup;
+
+        if (goalsCompleted >= totalGoalsCurrentGroup && totalGoalsCurrentGroup > 0)
+        {
+            OpenDoorsInCurrentGroup();
+        }
+    }
+
+    void OpenDoorsInCurrentGroup()
+    {
+        if (levelManager != null)
+        {
+            foreach (var door in levelManager.doors)
+            {
+                if (door != null) door.OpenDoor();
+            }
+        }
+    }
+
+    public void AdvanceLevel()
+    {
+        int nextIndex = currentGroupIndex + 1;
+
+        if (levelManager != null && nextIndex < levelManager.levelGroups.Count)
+        {
+            var nextGroup = levelManager.levelGroups[nextIndex];
+
+            GameObject player = levelManager.playerInstance;
+            if (player != null)
+            {
+                player.transform.position = nextGroup.playerSettings.spawnPoint;
+            }
+
+            levelManager.ClearCurrentLevel();
+
+            currentGroupIndex = nextIndex;
+            levelManager.SpawnLevel(currentGroupIndex);
+
+            UpdateGroupGoalsTarget();
+            Debug.Log("Group: " + currentGroupIndex);
+        }
+        else
         {
             WinGame();
         }
@@ -56,7 +145,7 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
-        Debug.Log("🎉 You Win! All goals completed!");
+        Debug.Log("You Win!");
         Time.timeScale = 0f;
         if (winPanel != null)
             winPanel.SetActive(true);
@@ -74,13 +163,16 @@ public class GameManager : MonoBehaviour
     {
         playerHP -= damage;
 
-        for (int i = 0; i < damage; i++)
+        if (heartImages != null)
         {
-            if (heartImages.Count > 0)
+            for (int i = 0; i < damage; i++)
             {
-                Image heart = heartImages[heartImages.Count - 1];
-                heart.gameObject.SetActive(false);
-                heartImages.RemoveAt(heartImages.Count - 1);
+                if (heartImages.Count > 0)
+                {
+                    Image heart = heartImages[heartImages.Count - 1];
+                    if (heart != null) heart.gameObject.SetActive(false);
+                    heartImages.RemoveAt(heartImages.Count - 1);
+                }
             }
         }
 
@@ -92,9 +184,11 @@ public class GameManager : MonoBehaviour
 
     private void ResetHeartsUI()
     {
+        if (heartImages == null) return;
+
         foreach (var heart in heartImages)
         {
-            heart.gameObject.SetActive(true);
+            if (heart != null) heart.gameObject.SetActive(true);
         }
     }
 

@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    private Vector2 moveInput;
     private bool isMoving;
+    private LevelManager levelManager;
+    private GameManager gameManager;
+
+    private void Awake()
+    {
+        levelManager = Object.FindFirstObjectByType<LevelManager>();
+        gameManager = Object.FindFirstObjectByType<GameManager>();
+    }
 
     private void Update()
     {
@@ -25,6 +33,12 @@ public class PlayerController : MonoBehaviour
     void TryMove(Vector2 direction)
     {
         Vector2 targetPos = (Vector2)transform.position + direction;
+
+        if (gameManager != null && !gameManager.IsPositionInsideBounds(targetPos))
+        {
+            return;
+        }
+
         Collider2D hit = Physics2D.OverlapPoint(targetPos);
 
         if (hit == null)
@@ -34,18 +48,32 @@ public class PlayerController : MonoBehaviour
         else if (hit.CompareTag("Box"))
         {
             Box box = hit.GetComponent<Box>();
-            Vector2 boxTarget = targetPos + direction;
-            Collider2D boxHit = Physics2D.OverlapPoint(boxTarget);
+            if (box == null) return;
 
-            if (boxHit == null || boxHit.CompareTag("Box"))
+            Vector2 boxTargetPos = targetPos + direction;
+            if (gameManager != null && !gameManager.IsPositionInsideBounds(boxTargetPos))
             {
-                box.Move(direction);
+                return;
+            }
+
+            bool boxMoved = box.TryMoveBox(direction, true);
+
+            if (boxMoved)
+            {
                 StartCoroutine(MoveTo(targetPos));
+            }
+        }
+        else if (hit.CompareTag("Door"))
+        {
+            Door door = hit.GetComponent<Door>();
+            if (door != null && door.isOpen)
+            {
+                door.Enter(gameObject);
             }
         }
     }
 
-    System.Collections.IEnumerator MoveTo(Vector2 target)
+    IEnumerator MoveTo(Vector2 target)
     {
         isMoving = true;
         while ((target - (Vector2)transform.position).sqrMagnitude > Mathf.Epsilon)
@@ -54,6 +82,40 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
         transform.position = target;
+
+        CheckForTrap();
+
         isMoving = false;
+    }
+
+    void CheckForTrap()
+    {
+        if (levelManager == null || levelManager.traps == null) return;
+
+        Vector2 playerPos = transform.position;
+
+        foreach (var trap in levelManager.traps)
+        {
+            if (!trap.triggered && Vector2.Distance(trap.position, playerPos) < 0.1f)
+            {
+                trap.triggered = true;
+
+                if (trap.prefab != null)
+                {
+                    GameObject trapObj = Instantiate(trap.prefab, trap.position, Quaternion.identity);
+                    Box trapBox = trapObj.GetComponent<Box>();
+                    if (trapBox != null)
+                    {
+                        trapBox.levelManager = levelManager;
+                        trapBox.gridPos = Vector2Int.RoundToInt(trap.position);
+
+                        trapBox.isBlocked = true;
+                        trapBox.StartCoroutine(trapBox.BlinkThenExplode(3f));
+                    }
+                }
+
+                break;
+            }
+        }
     }
 }

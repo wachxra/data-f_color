@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Box
+  - Wall
+  - Traps
+  - Door
   layers:
   - Default
   - TransparentFX

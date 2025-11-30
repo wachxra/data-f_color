@@ -15,107 +15,107 @@ MonoBehaviour:
   mergeRules:
   - colorA: 1
     colorB: 2
-    resultPrefab: {fileID: 5758012460974483220, guid: 32da7163fb70e0f4aa5bdd628e942a5a, type: 3}
+    resultPrefab: {fileID: 5758012460974483220, guid: 2e190dec1f98ac04d9c5b241250feabf, type: 3}
     explodeIfMatched: 0
   - colorA: 1
     colorB: 3
-    resultPrefab: {fileID: 4881619544224899656, guid: 4eb3e58fb1dbb70478f792955d8938cd, type: 3}
+    resultPrefab: {fileID: 4881619544224899656, guid: 228c3b293bca3d442919cef1fdbf197b, type: 3}
     explodeIfMatched: 0
   - colorA: 1
     colorB: 1
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 2
     colorB: 3
-    resultPrefab: {fileID: 6904697248595091301, guid: 35af334e63e06ce4680ae9701726d125, type: 3}
+    resultPrefab: {fileID: 6904697248595091301, guid: 01e6e5dd19fc6a14eaeb542cec638633, type: 3}
     explodeIfMatched: 0
   - colorA: 2
     colorB: 2
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 3
     colorB: 3
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 7
     colorB: 1
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 7
     colorB: 2
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 7
     colorB: 3
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 7
     colorB: 4
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 7
     colorB: 5
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 7
     colorB: 6
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 7
     colorB: 7
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 4
     colorB: 3
-    resultPrefab: {fileID: 5880168608502538538, guid: b8c22f8a0163ee9468e8a7d7fba44d04, type: 3}
+    resultPrefab: {fileID: 5880168608502538538, guid: 4fddada914dc88f40a8b5ed29b4fab6a, type: 3}
     explodeIfMatched: 0
   - colorA: 5
     colorB: 1
-    resultPrefab: {fileID: 5880168608502538538, guid: b8c22f8a0163ee9468e8a7d7fba44d04, type: 3}
+    resultPrefab: {fileID: 5880168608502538538, guid: 4fddada914dc88f40a8b5ed29b4fab6a, type: 3}
     explodeIfMatched: 0
   - colorA: 6
     colorB: 2
-    resultPrefab: {fileID: 5880168608502538538, guid: b8c22f8a0163ee9468e8a7d7fba44d04, type: 3}
+    resultPrefab: {fileID: 5880168608502538538, guid: 4fddada914dc88f40a8b5ed29b4fab6a, type: 3}
     explodeIfMatched: 0
   - colorA: 6
     colorB: 1
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 6
     colorB: 2
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 6
     colorB: 3
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 6
     colorB: 4
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 6
     colorB: 5
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 6
     colorB: 6
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 5
     colorB: 1
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 5
     colorB: 2
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 5
     colorB: 3
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 5
     colorB: 4
-    resultPrefab: {fileID: 0}
+    resultPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
     explodeIfMatched: 1
   - colorA: 5
     colorB: 5
@@ -137,3 +137,4 @@ MonoBehaviour:
     colorB: 4
     resultPrefab: {fileID: 0}
     explodeIfMatched: 1
+  explosionPrefab: {fileID: 8932541312508049713, guid: 7ed89c02b902dd84cbf3ceec2b3a7192, type: 3}
