@@ -4970,7 +4970,7 @@ MonoBehaviour:
       useFixed: 1
       useRandom: 0
       fixedPoints:
-      - {x: -6, y: -100}
+      - {x: -8, y: -100}
       fixedCount: 1
       randomCount: 0
       randomSettingsIndex: 0
@@ -5007,15 +5007,15 @@ MonoBehaviour:
     - useFixed: 1
       useRandom: 0
       fixedPoints:
-      - {x: -3, y: -96}
-      - {x: -3, y: -97}
-      - {x: -3, y: -98}
-      - {x: -3, y: -99}
-      - {x: -3, y: -100}
-      - {x: -3, y: -101}
-      - {x: -3, y: -102}
-      - {x: -3, y: -103}
-      - {x: -3, y: -104}
+      - {x: -7, y: -96}
+      - {x: -7, y: -97}
+      - {x: -7, y: -98}
+      - {x: -7, y: -99}
+      - {x: -7, y: -100}
+      - {x: -7, y: -101}
+      - {x: -7, y: -102}
+      - {x: -7, y: -103}
+      - {x: -7, y: -104}
       - {x: -6, y: -74}
       - {x: -5, y: -74}
       - {x: -4, y: -74}
@@ -54159,7 +54159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2034181401
 Transform:
   m_ObjectHideFlags: 0
