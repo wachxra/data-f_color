@@ -282,6 +282,8 @@ public class LevelManager : MonoBehaviour
                 box.colorType = req.color;
                 box.levelManager = this;
                 boxes.Add(box);
+
+                occupied.Add(pos);
             }
         }
     }
@@ -321,6 +323,8 @@ public class LevelManager : MonoBehaviour
         {
             Vector2 pos = availablePoints[i];
             traps.Add(new TrapData(pos, trapPrefab));
+
+            occupied.Add(pos);
         }
     }
 
@@ -358,16 +362,19 @@ public class LevelManager : MonoBehaviour
 
     Vector2 GetRandomIntPosition(HashSet<Vector2> occupied, RandomSettings random)
     {
-        Vector2 pos = Vector2.zero;
-        int tries = 0;
+        Vector2 pos;
+        int safety = 0;
+
         do
         {
             pos = new Vector2(
                 Random.Range(random.randomMin.x, random.randomMax.x + 1),
                 Random.Range(random.randomMin.y, random.randomMax.y + 1)
             );
-            tries++;
-        } while (occupied.Contains(pos) && tries < 50);
+            safety++;
+        }
+        while (occupied.Contains(pos) && safety < 200);
+
         return pos;
     }
 

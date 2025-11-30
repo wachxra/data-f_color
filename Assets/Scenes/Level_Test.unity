@@ -5058,9 +5058,9 @@ MonoBehaviour:
       max: {x: 2, y: -114}
     - min: {x: 14, y: -129}
       max: {x: 14, y: -114}
-    - min: {x: 14, y: -148}
+    - min: {x: 14, y: -141}
       max: {x: 14, y: -133}
-    - min: {x: 2, y: -148}
+    - min: {x: 2, y: -141}
       max: {x: 2, y: -133}
     - min: {x: -9, y: -125}
       max: {x: -6, y: -125}
@@ -5078,6 +5078,10 @@ MonoBehaviour:
       max: {x: 6, y: -137}
     - min: {x: -9, y: -137}
       max: {x: -6, y: -137}
+    - min: {x: 14, y: -145}
+      max: {x: 14, y: -148}
+    - min: {x: 2, y: -145}
+      max: {x: 2, y: -148}
     playerSettings:
       spawnPoint: {x: 10, y: -130}
       useFixed: 1
