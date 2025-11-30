@@ -1621,7 +1621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &252854298
 Transform:
   m_ObjectHideFlags: 0
@@ -5050,6 +5050,333 @@ MonoBehaviour:
       randomMax: {x: 16, y: -97}
     - randomMin: {x: -6, y: -72}
       randomMax: {x: 16, y: -68}
+  - groupName: 05
+    boundMin: {x: -9, y: -148}
+    boundMax: {x: 25, y: -114}
+    innerBounds:
+    - min: {x: 2, y: -129}
+      max: {x: 2, y: -114}
+    - min: {x: 14, y: -129}
+      max: {x: 14, y: -114}
+    - min: {x: 14, y: -148}
+      max: {x: 14, y: -133}
+    - min: {x: 2, y: -148}
+      max: {x: 2, y: -133}
+    - min: {x: -9, y: -125}
+      max: {x: -6, y: -125}
+    - min: {x: -2, y: -125}
+      max: {x: 6, y: -125}
+    - min: {x: 10, y: -125}
+      max: {x: 18, y: -125}
+    - min: {x: 22, y: -125}
+      max: {x: 25, y: -125}
+    - min: {x: 22, y: -137}
+      max: {x: 25, y: -137}
+    - min: {x: 10, y: -137}
+      max: {x: 18, y: -137}
+    - min: {x: -2, y: -137}
+      max: {x: 6, y: -137}
+    - min: {x: -9, y: -137}
+      max: {x: -6, y: -137}
+    playerSettings:
+      spawnPoint: {x: 10, y: -130}
+      useFixed: 1
+    wallSettings:
+      wallPositions:
+      - {x: 2, y: -130}
+      - {x: 2, y: -131}
+      - {x: 2, y: -132}
+      - {x: 14, y: -132}
+      - {x: 14, y: -131}
+      - {x: 14, y: -130}
+      - {x: 2, y: -142}
+      - {x: 2, y: -143}
+      - {x: 2, y: -144}
+      - {x: 14, y: -144}
+      - {x: 14, y: -143}
+      - {x: 14, y: -142}
+      - {x: -5, y: -125}
+      - {x: -4, y: -125}
+      - {x: -3, y: -125}
+      - {x: 7, y: -125}
+      - {x: 8, y: -125}
+      - {x: 9, y: -125}
+      - {x: 19, y: -125}
+      - {x: 20, y: -125}
+      - {x: 21, y: -125}
+      - {x: -5, y: -137}
+      - {x: -4, y: -137}
+      - {x: -3, y: -137}
+      - {x: 7, y: -137}
+      - {x: 8, y: -137}
+      - {x: 9, y: -137}
+      - {x: 19, y: -137}
+      - {x: 20, y: -137}
+      - {x: 21, y: -137}
+      useFixed: 1
+    goalSettings:
+      useFixed: 1
+      useRandom: 0
+      fixedPoints:
+      - {x: -4, y: -119}
+      - {x: 8, y: -119}
+      - {x: 20, y: -119}
+      - {x: 20, y: -131}
+      - {x: -4, y: -131}
+      - {x: -4, y: -143}
+      - {x: 8, y: -143}
+      - {x: 20, y: -143}
+      fixedCount: 8
+      randomCount: 0
+      randomSettingsIndex: 0
+    doorSettings:
+      useFixed: 1
+      useRandom: 0
+      fixedPoints:
+      - {x: 8, y: -131}
+      fixedCount: 1
+      randomCount: 0
+      randomSettingsIndex: 0
+    boxGroups:
+    - spawnPoints: []
+      colorSpawnRequests: []
+      randomBoxes:
+      - color: 3
+        count: 4
+      useFixed: 0
+      useRandom: 1
+      randomSettingsIndex: 0
+    - spawnPoints: []
+      colorSpawnRequests: []
+      randomBoxes:
+      - color: 1
+        count: 1
+      - color: 2
+        count: 1
+      - color: 3
+        count: 1
+      useFixed: 0
+      useRandom: 1
+      randomSettingsIndex: 1
+    - spawnPoints: []
+      colorSpawnRequests: []
+      randomBoxes:
+      - color: 1
+        count: 4
+      useFixed: 0
+      useRandom: 1
+      randomSettingsIndex: 2
+    - spawnPoints: []
+      colorSpawnRequests: []
+      randomBoxes:
+      - color: 1
+        count: 1
+      - color: 2
+        count: 1
+      useFixed: 0
+      useRandom: 1
+      randomSettingsIndex: 3
+    - spawnPoints: []
+      colorSpawnRequests: []
+      randomBoxes:
+      - color: 1
+        count: 1
+      - color: 2
+        count: 1
+      useFixed: 0
+      useRandom: 1
+      randomSettingsIndex: 4
+    - spawnPoints: []
+      colorSpawnRequests: []
+      randomBoxes:
+      - color: 2
+        count: 12
+      useFixed: 0
+      useRandom: 1
+      randomSettingsIndex: 5
+    - spawnPoints: []
+      colorSpawnRequests: []
+      randomBoxes:
+      - color: 3
+        count: 4
+      useFixed: 0
+      useRandom: 1
+      randomSettingsIndex: 6
+    - spawnPoints: []
+      colorSpawnRequests: []
+      randomBoxes:
+      - color: 1
+        count: 1
+      - color: 2
+        count: 1
+      - color: 3
+        count: 1
+      useFixed: 0
+      useRandom: 1
+      randomSettingsIndex: 7
+    - spawnPoints: []
+      colorSpawnRequests: []
+      randomBoxes:
+      - color: 1
+        count: 6
+      useFixed: 0
+      useRandom: 1
+      randomSettingsIndex: 8
+    trapGroups:
+    - useFixed: 1
+      useRandom: 0
+      fixedPoints:
+      - {x: -6, y: -119}
+      - {x: -2, y: -119}
+      - {x: -4, y: -117}
+      - {x: -4, y: -121}
+      fixedCount: 4
+      randomCount: 0
+      randomSettingsIndex: 0
+    - useFixed: 1
+      useRandom: 0
+      fixedPoints:
+      - {x: -4, y: -129}
+      - {x: -4, y: -133}
+      - {x: -2, y: -131}
+      - {x: -6, y: -131}
+      fixedCount: 4
+      randomCount: 0
+      randomSettingsIndex: 0
+    - useFixed: 1
+      useRandom: 0
+      fixedPoints:
+      - {x: -6, y: -143}
+      - {x: -2, y: -143}
+      - {x: -4, y: -141}
+      - {x: -4, y: -145}
+      fixedCount: 4
+      randomCount: 0
+      randomSettingsIndex: 0
+    - useFixed: 1
+      useRandom: 0
+      fixedPoints:
+      - {x: 8, y: -117}
+      - {x: 8, y: -121}
+      - {x: 6, y: -119}
+      - {x: 10, y: -119}
+      fixedCount: 4
+      randomCount: 0
+      randomSettingsIndex: 0
+    - useFixed: 1
+      useRandom: 0
+      fixedPoints:
+      - {x: 8, y: -141}
+      - {x: 8, y: -145}
+      - {x: 6, y: -143}
+      - {x: 10, y: -143}
+      fixedCount: 4
+      randomCount: 0
+      randomSettingsIndex: 0
+    - useFixed: 1
+      useRandom: 0
+      fixedPoints:
+      - {x: 20, y: -117}
+      - {x: 20, y: -121}
+      - {x: 18, y: -119}
+      - {x: 22, y: -119}
+      fixedCount: 4
+      randomCount: 0
+      randomSettingsIndex: 0
+    - useFixed: 1
+      useRandom: 0
+      fixedPoints:
+      - {x: 22, y: -131}
+      - {x: 18, y: -131}
+      - {x: 20, y: -129}
+      - {x: 20, y: -133}
+      fixedCount: 4
+      randomCount: 0
+      randomSettingsIndex: 0
+    - useFixed: 1
+      useRandom: 0
+      fixedPoints:
+      - {x: 20, y: -141}
+      - {x: 20, y: -145}
+      - {x: 18, y: -143}
+      - {x: 22, y: -143}
+      fixedCount: 4
+      randomCount: 0
+      randomSettingsIndex: 0
+    - useFixed: 0
+      useRandom: 1
+      fixedPoints: []
+      fixedCount: 0
+      randomCount: 1
+      randomSettingsIndex: 0
+    - useFixed: 0
+      useRandom: 1
+      fixedPoints: []
+      fixedCount: 0
+      randomCount: 1
+      randomSettingsIndex: 1
+    - useFixed: 0
+      useRandom: 1
+      fixedPoints: []
+      fixedCount: 0
+      randomCount: 3
+      randomSettingsIndex: 2
+    - useFixed: 0
+      useRandom: 1
+      fixedPoints: []
+      fixedCount: 0
+      randomCount: 3
+      randomSettingsIndex: 4
+    - useFixed: 0
+      useRandom: 1
+      fixedPoints: []
+      fixedCount: 0
+      randomCount: 1
+      randomSettingsIndex: 5
+    - useFixed: 0
+      useRandom: 1
+      fixedPoints: []
+      fixedCount: 0
+      randomCount: 4
+      randomSettingsIndex: 6
+    - useFixed: 0
+      useRandom: 1
+      fixedPoints: []
+      fixedCount: 0
+      randomCount: 2
+      randomSettingsIndex: 7
+    - useFixed: 0
+      useRandom: 1
+      fixedPoints: []
+      fixedCount: 0
+      randomCount: 2
+      randomSettingsIndex: 7
+    - useFixed: 1
+      useRandom: 0
+      fixedPoints:
+      - {x: 8, y: -126}
+      fixedCount: 1
+      randomCount: 0
+      randomSettingsIndex: 0
+    randomSettingsList:
+    - randomMin: {x: -8, y: -123}
+      randomMax: {x: 0, y: -115}
+    - randomMin: {x: -8, y: -135}
+      randomMax: {x: 0, y: -127}
+    - randomMin: {x: -8, y: -147}
+      randomMax: {x: 0, y: -139}
+    - randomMin: {x: 4, y: -123}
+      randomMax: {x: 12, y: -115}
+    - randomMin: {x: 4, y: -135}
+      randomMax: {x: 12, y: -127}
+    - randomMin: {x: 4, y: -147}
+      randomMax: {x: 12, y: -139}
+    - randomMin: {x: 16, y: -123}
+      randomMax: {x: 24, y: -115}
+    - randomMin: {x: 16, y: -135}
+      randomMax: {x: 24, y: -127}
+    - randomMin: {x: 16, y: -147}
+      randomMax: {x: 24, y: -139}
 --- !u!4 &712751505
 Transform:
   m_ObjectHideFlags: 0
@@ -8628,7 +8955,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1136656293
 Transform:
   m_ObjectHideFlags: 0
@@ -13211,7 +13538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1640432033
 Transform:
   m_ObjectHideFlags: 0
@@ -14989,7 +15316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1899869572
 Transform:
   m_ObjectHideFlags: 0
