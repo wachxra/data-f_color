@@ -114,6 +114,8 @@ public class Box : TileObject
             {
                 mergedBox.levelManager = levelManager;
                 mergedBox.gridPos = Vector2Int.RoundToInt(spawnPos);
+
+                mergedBox.CheckGoalStatus();
             }
 
             Destroy(gameObject);
