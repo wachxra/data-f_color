@@ -59,13 +59,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void StopSFX(string keyId)
-    {
-        if (sfxSource == null) return;
-
-        sfxSource.Stop();
-    }
-
     public void SetSFXVolume(float volume)
     {
         if (sfxSource != null)

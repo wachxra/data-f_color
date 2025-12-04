@@ -19,7 +19,7 @@ public class Goal : TileObject
 
         if (AudioManager.Instance)
         {
-            AudioManager.Instance.PlaySFX("BoxOnGoal");
+            AudioManager.Instance.PlaySFX("Tick");
         }
 
         var sr = GetComponent<SpriteRenderer>();
