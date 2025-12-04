@@ -1,11 +1,24 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class MainMenuManager : MonoBehaviour
 {
+    [Header("Tutorial Settings")]
+    public GameObject tutorialPanel;
+    public string gameSceneName;
+    private bool tutorialOpened = false;
+
     public void StartGame(string sceneName)
     {
         Debug.Log("Loading scene: " + sceneName);
+
+        if (tutorialPanel != null)
+        {
+            tutorialPanel.SetActive(true);
+            tutorialOpened = true;
+            gameSceneName = sceneName;
+            return;
+        }
 
         if (!string.IsNullOrEmpty(sceneName))
         {
@@ -18,7 +31,7 @@ public class MainMenu : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-    Application.Quit();
+        Application.Quit();
 #endif
     }
 
@@ -31,5 +44,16 @@ public class MainMenu : MonoBehaviour
     public void BackToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    private void Update()
+    {
+        if (tutorialOpened && Input.GetKeyDown(KeyCode.Space))
+        {
+            if (!string.IsNullOrEmpty(gameSceneName))
+            {
+                SceneManager.LoadScene(gameSceneName);
+            }
+        }
     }
 }
