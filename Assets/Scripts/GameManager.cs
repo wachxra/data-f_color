@@ -145,6 +145,11 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX("Win");
+        }
+
         Debug.Log("You Win!");
         Time.timeScale = 0f;
         if (winPanel != null)
@@ -153,6 +158,11 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX("Lose");
+        }
+
         Debug.Log("Game Over!");
         Time.timeScale = 0f;
         if (losePanel != null)
@@ -162,6 +172,11 @@ public class GameManager : MonoBehaviour
     public void TakeDamage(int damage)
     {
         playerHP -= damage;
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX("Hurt");
+        }
 
         if (heartImages != null)
         {

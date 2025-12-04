@@ -17,6 +17,11 @@ public class Goal : TileObject
 
         isCompleted = true;
 
+        if (AudioManager.Instance)
+        {
+            AudioManager.Instance.PlaySFX("Tick");
+        }
+
         var sr = GetComponent<SpriteRenderer>();
         if (sr != null) sr.color = Color.green;
 

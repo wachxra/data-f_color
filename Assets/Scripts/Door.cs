@@ -20,6 +20,11 @@ public class Door : MonoBehaviour
     {
         isOpen = true;
         UpdateVisuals();
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX("DoorOpen");
+        }
     }
 
     public void CloseDoor()

@@ -69,12 +69,22 @@ public class PlayerController : MonoBehaviour
             if (door != null && door.isOpen)
             {
                 door.Enter(gameObject);
+
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlaySFX("NextLevel");
+                }
             }
         }
     }
 
     IEnumerator MoveTo(Vector2 target)
     {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX("Walking");
+        }
+
         isMoving = true;
         while ((target - (Vector2)transform.position).sqrMagnitude > Mathf.Epsilon)
         {

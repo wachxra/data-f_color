@@ -55,6 +55,12 @@ public class Box : TileObject
                         if (result != null || explode)
                         {
                             MergeAndSpawn(other, target);
+
+                            if (AudioManager.Instance != null)
+                            {
+                                AudioManager.Instance.PlaySFX("Merge");
+                            }
+
                             return true;
                         }
                     }
@@ -72,6 +78,12 @@ public class Box : TileObject
 
         transform.position = target;
         gridPos += Vector2Int.RoundToInt(direction);
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX("Push");
+        }
+
         CheckGoalStatus();
         return true;
     }
@@ -138,6 +150,12 @@ public class Box : TileObject
         {
             if (spriteRenderer != null)
                 spriteRenderer.enabled = !spriteRenderer.enabled;
+
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySFX("BoxOnGoal");
+            }
+
             yield return new WaitForSeconds(0.25f);
             elapsed += 0.25f;
         }
@@ -145,6 +163,11 @@ public class Box : TileObject
         ExplodeArea();
 
         Destroy(gameObject);
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX("Bomb");
+        }
     }
 
     private void ExplodeArea()
