@@ -153,7 +153,7 @@ public class Box : TileObject
 
             if (AudioManager.Instance != null)
             {
-                AudioManager.Instance.PlaySFX("BoxOnGoal");
+                AudioManager.Instance.PlaySFX("Tick");
             }
 
             yield return new WaitForSeconds(0.25f);
@@ -161,6 +161,11 @@ public class Box : TileObject
         }
 
         ExplodeArea();
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopSFX("Tick");
+        }
 
         Destroy(gameObject);
 
