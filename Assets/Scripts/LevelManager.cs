@@ -36,8 +36,6 @@ public class LevelManager : MonoBehaviour
         spawnedWalls = new List<GameObject>();
     }
 
-    void Start() { }
-
     void OnDrawGizmosSelected()
     {
         if (levelGroups == null) return;
