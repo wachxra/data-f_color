@@ -5667,6 +5667,15 @@ MonoBehaviour:
       fixedCount: 1
       randomCount: 0
       randomSettingsIndex: 0
+    - useFixed: 1
+      useRandom: 0
+      fixedPoints:
+      - {x: 3, y: -131}
+      - {x: 13, y: -131}
+      - {x: 8, y: -136}
+      fixedCount: 3
+      randomCount: 0
+      randomSettingsIndex: 0
     randomSettingsList:
     - randomMin: {x: -8, y: -123}
       randomMax: {x: 0, y: -115}
