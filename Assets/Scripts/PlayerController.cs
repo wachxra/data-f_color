@@ -86,16 +86,23 @@ public class PlayerController : MonoBehaviour
         }
 
         isMoving = true;
-        while ((target - (Vector2)transform.position).sqrMagnitude > Mathf.Epsilon)
+
+        try
         {
-            transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
-            yield return null;
+            while ((target - (Vector2)transform.position).sqrMagnitude > Mathf.Epsilon)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
+                yield return null;
+            }
+
+            transform.position = target;
+
+            CheckForTrap();
         }
-        transform.position = target;
-
-        CheckForTrap();
-
-        isMoving = false;
+        finally
+        {
+            isMoving = false;
+        }
     }
 
     void CheckForTrap()
@@ -114,16 +121,19 @@ public class PlayerController : MonoBehaviour
                 {
                     GameObject trapObj = Instantiate(trap.prefab, trap.position, Quaternion.identity);
                     Box trapBox = trapObj.GetComponent<Box>();
+
                     if (trapBox != null)
                     {
                         trapBox.levelManager = levelManager;
                         trapBox.gridPos = Vector2Int.RoundToInt(trap.position);
-
                         trapBox.isBlocked = true;
-                        trapBox.StartCoroutine(trapBox.BlinkThenExplode(3f));
+
+                        if (trapBox.gameObject.activeInHierarchy)
+                        {
+                            trapBox.StartCoroutine(trapBox.BlinkThenExplode(3f));
+                        }
                     }
                 }
-
                 break;
             }
         }

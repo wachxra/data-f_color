@@ -163,6 +163,7 @@ public class Box : TileObject
         ExplodeArea();
 
         Destroy(gameObject);
+        AudioManager.Instance.StopSFX("Tick");
 
         if (AudioManager.Instance != null)
         {
