@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     private LevelManager levelManager;
     private GameManager gameManager;
 
+    [Header("Settings")]
+    public LayerMask obstacleLayer;
+
     private void Awake()
     {
         levelManager = Object.FindFirstObjectByType<LevelManager>();
@@ -39,7 +42,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        Collider2D hit = Physics2D.OverlapPoint(targetPos);
+        Collider2D hit = Physics2D.OverlapPoint(targetPos, obstacleLayer);
 
         if (hit == null)
         {
@@ -76,22 +79,34 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            Debug.Log($"Walk blocked by: {hit.name} with Tag: {hit.tag}");
+        }
     }
 
     IEnumerator MoveTo(Vector2 target)
     {
-        if (AudioManager.Instance != null)
+        try
         {
-            AudioManager.Instance.PlaySFX("Walking");
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySFX("Walking");
+            }
         }
+        catch { }
 
         isMoving = true;
 
+        float timeLimit = 0.5f;
+        float timer = 0f;
+
         try
         {
-            while ((target - (Vector2)transform.position).sqrMagnitude > Mathf.Epsilon)
+            while ((target - (Vector2)transform.position).sqrMagnitude > 0.001f && timer < timeLimit)
             {
                 transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
+                timer += Time.deltaTime;
                 yield return null;
             }
 

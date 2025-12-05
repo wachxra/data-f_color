@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1294837802732798368}
   - component: {fileID: 8897808720492684348}
   - component: {fileID: 5836177901607592095}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Box_Bomb
   m_TagString: Box
   m_Icon: {fileID: 0}
@@ -106,7 +106,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Box
   gridPos: {x: 0, y: 0}
   colorType: 0
+  spriteRenderer: {fileID: 0}
   levelManager: {fileID: 0}
+  isBlocked: 0
 --- !u!61 &5836177901607592095
 BoxCollider2D:
   m_ObjectHideFlags: 0

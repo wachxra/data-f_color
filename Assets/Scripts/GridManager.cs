@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 public class GridManager : MonoBehaviour
 {
-    private int width = 5;
-    private int height = 5;
+    private int width;
+    private int height;
     public TileObject[,] grid;
 
     void Awake()
