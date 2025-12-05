@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Traps
   - Door
+  - Goal
   layers:
   - Default
   - TransparentFX
